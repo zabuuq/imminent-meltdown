@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cpebqanbc00uj"]
 
 [ext_resource type="Script" uid="uid://bmigdhu1kjo70" path="res://player.gd" id="1_1jxqw"]
-[ext_resource type="Texture2D" uid="uid://drqf1v6h4hnof" path="res://art/character-forward-1.png" id="1_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://druo3j8ih3v1t" path="res://art/character-forward-2.png" id="2_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://drqf1v6h4hnof" path="res://art/character-forward-2.png" id="1_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://druo3j8ih3v1t" path="res://art/character-forward-1.png" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://bonhrcx1pqtoi" path="res://art/character-forward-3.png" id="3_dw050"]
-[ext_resource type="Texture2D" uid="uid://ckesn2d8o1wcv" path="res://art/character-horizontal-1.png" id="4_b26j0"]
-[ext_resource type="Texture2D" uid="uid://bdrogw101xbm2" path="res://art/character-horizontal-2.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://ckesn2d8o1wcv" path="res://art/character-horizontal-2.png" id="4_b26j0"]
+[ext_resource type="Texture2D" uid="uid://bdrogw101xbm2" path="res://art/character-horizontal-1.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://bih04oo2sp5er" path="res://art/character-backward-1.png" id="5_nvl01"]
+[ext_resource type="Texture2D" uid="uid://df86oa4a7g5hh" path="res://art/character-backward-2.png" id="6_ivps1"]
 [ext_resource type="Texture2D" uid="uid://bmnvhjckg02xg" path="res://art/character-horizontal-3.png" id="6_nvl01"]
+[ext_resource type="Texture2D" uid="uid://mxja51qss1cy" path="res://art/character-backward-3.png" id="7_urp6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
 animations = [{
@@ -22,6 +25,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_dw050")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_urp6f")
 }],
 "loop": true,
 "name": &"up",
@@ -41,7 +61,7 @@ animations = [{
 "texture": ExtResource("6_nvl01")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"vertical",
 "speed": 5.0
 }]
 
@@ -57,7 +77,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=756935328]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ivps1")
-animation = &"up"
+animation = &"vertical"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1038961728]
 shape = SubResource("CapsuleShape2D_urp6f")

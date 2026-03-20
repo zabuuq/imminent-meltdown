@@ -37,14 +37,14 @@ func _process(delta: float):
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
+#	# Never flip the sprite vertically
+	$AnimatedSprite2D.flip_v = false
+
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
-		#See the note below about the following boolean assignment.
+		$AnimatedSprite2D.animation = "vertical"
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
+		$AnimatedSprite2D.animation = "down" if velocity.y > 0 else "up"
 
 func _on_body_entered(_body):
 	hide() # Player disappears after being hit.
