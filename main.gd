@@ -19,7 +19,7 @@ func game_over():
 	$DeathSound.play()
 
 func new_game():
-	score = 360
+	score = 10
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
@@ -33,6 +33,7 @@ func _on_start_timer_timeout():
 func _on_score_timer_timeout():
 	score -= 1
 	$HUD.update_score(score)
-	#if score != 0:
-	#	$game_over.start()
+	
+	if score <= 0:
+		game_over()
 	
