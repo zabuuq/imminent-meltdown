@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Imminent-Meltdown"
-run/main_scene="uid://okbssjqndse8"
+run/main_scene="uid://cgb226hqsuv23"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1200
+window/size/viewport_height=800
 
 [input]
 

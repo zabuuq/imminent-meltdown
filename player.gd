@@ -8,7 +8,7 @@ var screen_size # Size of the game window
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	#hide() #hides the player when the game starts
+	hide() #hides the player when the game starts
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta: float) -> void:
@@ -31,7 +31,7 @@ func _process(delta: float):
 		velocity.y -= 400 #Use 1 when velocity inside loop, 400 when outside
 		velocity.x = 0
 	#velocity & position printed for troubleshooting purposes
-	print(velocity)
+	#print(velocity)
 	#print(position)
 	
 	if velocity.length() > 0:
