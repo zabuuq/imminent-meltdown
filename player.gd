@@ -8,22 +8,24 @@ var screen_size # Size of the game window
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	# hide() #hides the player when the game starts
+	#hide() #hides the player when the game starts
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta: float) -> void:
 #	pass
 
+var velocity = Vector2.ZERO # The player's movement vector. Use this when you want the player always move
+
 func _process(delta: float):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	#var velocity = Vector2.ZERO # The player's movement vector. Use this when you want the player to stop when not pressing a button
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x += 400 #Use 1 when velocity inside loop, 400 when outside
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		velocity.x -= 400 #Use 1 when velocity inside loop, 400 when outside
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		velocity.y += 400 #Use 1 when velocity inside loop, 400 when outside
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+		velocity.y -= 400 #Use 1 when velocity inside loop, 400 when outside
 	#velocity & position printed for troubleshooting purposes
 	#print(velocity)
 	#print(position)
@@ -36,7 +38,7 @@ func _process(delta: float):
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	
+		
 #	# Never flip the sprite vertically
 	$AnimatedSprite2D.flip_v = false
 
@@ -56,3 +58,7 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+
+func game_over() -> void:
+	pass # Replace with function body.
