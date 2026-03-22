@@ -17,14 +17,6 @@ point_count = 5
 script = ExtResource("1_0xm2m")
 radioactive_worker_scene = ExtResource("2_7mycd")
 
-[node name="BackgroundColor" type="ColorRect" parent="." unique_id=625064155]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.6935729, 0.8251902, 0.96207887, 1)
-
 [node name="Player" parent="." unique_id=523124371 instance=ExtResource("1_ig7tw")]
 
 [node name="ScoreTimer" type="Timer" parent="." unique_id=336445374]
