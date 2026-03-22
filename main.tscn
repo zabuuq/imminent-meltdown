@@ -583,9 +583,9 @@ separation = Vector2i(1, 1)
 [sub_resource type="TileSet" id="TileSet_kek77"]
 sources/0 = SubResource("TileSetAtlasSource_5vw27")
 
-[sub_resource type="Curve2D" id="Curve2D_272bh"]
+[sub_resource type="Curve2D" id="Curve2D_7mycd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 128, 128, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 192, 192, 0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 128, 128)
+"points": PackedVector2Array(0, 0, 0, 0, 576, 384, 0, 0, 0, 0, 576, 448, 0, 0, 0, 0, 640, 448, 0, 0, 0, 0, 640, 384, 0, 0, 0, 0, 576, 384)
 }
 point_count = 5
 
@@ -610,15 +610,7 @@ one_shot = true
 wait_time = 2.0
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=1972644690]
-position = Vector2(138, 736)
-
-[node name="RWMobPath" type="Path2D" parent="." unique_id=1901104807]
-position = Vector2(500, 500)
-curve = SubResource("Curve2D_272bh")
-
-[node name="RWMobSpawnLocation" type="PathFollow2D" parent="RWMobPath" unique_id=1088098062]
-position = Vector2(128, 128)
-rotation = 1.5707964
+position = Vector2(464, 712)
 
 [node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
 
@@ -628,6 +620,13 @@ parameters/looping = true
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=470759346]
 stream = ExtResource("6_272bh")
+
+[node name="RWMobPath" type="Path2D" parent="." unique_id=644954499]
+curve = SubResource("Curve2D_7mycd")
+
+[node name="RWMobSpawnLocation" type="PathFollow2D" parent="RWMobPath" unique_id=1419738794]
+position = Vector2(576, 384)
+rotation = 1.5707964
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
