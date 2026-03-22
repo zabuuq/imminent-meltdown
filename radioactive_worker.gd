@@ -2,8 +2,9 @@ extends RigidBody2D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	add_to_group("hazard")
+#	pass # Replace with function body.
 
 @export var speed = 200 # How fast the Radioactive Worker will move (pixels/sec)
 var velocity = Vector2.ZERO

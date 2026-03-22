@@ -53,10 +53,22 @@ func _process(delta: float):
 		$AnimatedSprite2D.animation = "down" if velocity.y > 0 else "up"
 
 func _on_body_entered(_body):
-	hide() # Player disappears after being hit.
-	hit.emit()
+	#hide() # Player disappears after being hit.
+	#hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback
-	$CollisionShape2D.set_deferred("disabled", true)
+	#$CollisionShape2D.set_deferred("disabled", true)
+	if _body.is_in_group("hazard"):
+		hide()
+		hit.emit()
+		$CollisionShape2D.set_deferred("disabled", true)
+	elif _body.is_in_group("wall"):
+		# Push player back (simple wall behavior)
+		position -= velocity * 0.1
+		velocity = Vector2.ZERO
+	elif _body.is_in_group("ball"):
+		pass
+		
+		
 
 func start(pos):
 	position = pos
