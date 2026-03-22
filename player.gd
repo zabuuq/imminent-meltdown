@@ -42,7 +42,7 @@ func _process(delta: float):
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-		
+	
 #	# Never flip the sprite vertically
 	$AnimatedSprite2D.flip_v = false
 
@@ -74,7 +74,3 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-
-
-#func game_over() -> void:
-#	pass # Replace with function body.
