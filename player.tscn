@@ -83,6 +83,8 @@ animation = &"down"
 shape = SubResource("CapsuleShape2D_urp6f")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=887225263]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="hit" from="." to="." method="game_over"]
