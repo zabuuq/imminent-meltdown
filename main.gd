@@ -1,6 +1,6 @@
 extends Node
 
-@export var mob_scene: PackedScene
+@export var radioactive_worker_scene: PackedScene
 var score
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +29,7 @@ func new_game():
 
 func _on_start_timer_timeout():
 	$ScoreTimer.start()
+	$RWMobTimer.start()
 	
 func _on_score_timer_timeout():
 	score -= 1
@@ -37,3 +38,28 @@ func _on_score_timer_timeout():
 	if score <= 0:
 		game_over()
 	
+
+func _on_rw_mob_timer_timeout():
+# Create a new instance of the radioactive_worker scene.
+	var RWmob = radioactive_worker_scene.instantiate()
+	
+	#Choose a random location on Path2D.
+	var RWmob_spawn_location = $RWMobPath/RWMobSpawnLocation
+	RWmob_spawn_location.progress_ratio = randf()
+	
+	#Set the mob's position to the random location.
+	RWmob.position = RWmob_spawn_location.position
+	
+	#Set the mob's direction perpendicular to the path direction.
+	var direction = RWmob_spawn_location.rotation + PI / 2
+	
+	#Add some randomness to the direction.
+	direction += randf_range(-PI / 4, PI / 4)
+	#RWmob.rotation = direction
+	
+	# Choose the velocity for the mob.
+	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	RWmob.linear_velocity = velocity.rotated(direction)
+	
+	# Spawn the mob by adding it to the Main Scene
+	add_child(RWmob)

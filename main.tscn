@@ -2,16 +2,20 @@
 
 [ext_resource type="Script" uid="uid://bfaexhaohh8qb" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cpebqanbc00uj" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bh6hif527527n" path="res://radioactive_worker.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://art/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://art/gameover.wav" id="6_272bh"]
 
-[sub_resource type="Resource" id="Resource_lquwl"]
-metadata/__load_path__ = "res://mob.tscn"
+[sub_resource type="Curve2D" id="Curve2D_272bh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 128, 128, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 192, 192, 0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 128, 128)
+}
+point_count = 5
 
 [node name="Main" type="Node" unique_id=1879869702]
 script = ExtResource("1_0xm2m")
-mob_scene = SubResource("Resource_lquwl")
+radioactive_worker_scene = ExtResource("2_7mycd")
 
 [node name="BackgroundColor" type="ColorRect" parent="." unique_id=625064155]
 anchors_preset = 15
@@ -29,8 +33,19 @@ color = Color(0.6935729, 0.8251902, 0.96207887, 1)
 wait_time = 2.0
 one_shot = true
 
+[node name="RWMobTimer" type="Timer" parent="." unique_id=317644707]
+wait_time = 2.0
+
 [node name="StartPosition" type="Marker2D" parent="." unique_id=1972644690]
 position = Vector2(138, 736)
+
+[node name="RWMobPath" type="Path2D" parent="." unique_id=1901104807]
+position = Vector2(500, 500)
+curve = SubResource("Curve2D_272bh")
+
+[node name="RWMobSpawnLocation" type="PathFollow2D" parent="RWMobPath" unique_id=1088098062]
+position = Vector2(128, 128)
+rotation = 1.5707964
 
 [node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
 
@@ -44,4 +59,5 @@ stream = ExtResource("6_272bh")
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="RWMobTimer" to="." method="_on_rw_mob_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

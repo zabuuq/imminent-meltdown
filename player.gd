@@ -32,7 +32,7 @@ func _process(delta: float):
 		velocity.x = 0
 	#velocity & position printed for troubleshooting purposes
 	#print(velocity)
-	print(position)
+	#print(position)
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -64,5 +64,5 @@ func start(pos):
 	$CollisionShape2D.disabled = false
 
 
-func game_over() -> void:
-	pass # Replace with function body.
+#func game_over() -> void:
+#	pass # Replace with function body.
