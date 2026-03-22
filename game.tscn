@@ -4,15 +4,12 @@
 
 [node name="Game" type="Node" unique_id=609694446]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2011543758]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=687768143]
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1661086182]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.49019608, 0.49019608, 0.49019608, 1)
+color = Color(0.39215687, 0.39215687, 0.39215687, 1)
 
 [node name="Main" parent="." unique_id=1879869702 instance=ExtResource("1_80nbo")]
