@@ -19,7 +19,7 @@ func game_over():
 	$DeathSound.play()
 
 func new_game():
-	score = 10
+	score = 360
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)

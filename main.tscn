@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfaexhaohh8qb" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cpebqanbc00uj" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://hud.tscn" id="4_1bvp3"]
-[ext_resource type="AudioStream" uid="uid://dnd6cyqkabv3i" path="res://art/House In a Forest Loop.ogg" id="5_7mycd"]
+[ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://art/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://art/gameover.wav" id="6_272bh"]
 
 [sub_resource type="Resource" id="Resource_lquwl"]
@@ -35,7 +35,7 @@ position = Vector2(138, 736)
 [node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=188113294]
-stream = ExtResource("5_7mycd")
+stream = ExtResource("4_lquwl")
 parameters/looping = true
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=470759346]

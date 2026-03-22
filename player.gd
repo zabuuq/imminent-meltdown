@@ -31,7 +31,7 @@ func _process(delta: float):
 		velocity.y -= 400 #Use 1 when velocity inside loop, 400 when outside
 		velocity.x = 0
 	#velocity & position printed for troubleshooting purposes
-	#print(velocity)
+	print(velocity)
 	#print(position)
 	
 	if velocity.length() > 0:
