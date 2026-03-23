@@ -66,8 +66,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bk3ot"]
-radius = 23.0
-height = 68.0
+radius = 3.0
+height = 8.0
 
 [node name="RadioactiveWorker" type="RigidBody2D" unique_id=1138154030]
 position = Vector2(165, 119)
