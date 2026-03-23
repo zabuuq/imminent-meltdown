@@ -42,6 +42,14 @@ func _process(delta: float):
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
+	if position.x >= 2400:
+		velocity = -velocity	
+	if position.x <= 0:
+		velocity = -velocity
+	if position.y >= 2400:
+		velocity = -velocity
+	if position.y <= 0:
+		velocity = -velocity
 	
 #	# Never flip the sprite vertically
 	$AnimatedSprite2D.flip_v = false
@@ -60,11 +68,13 @@ func _on_body_entered(_body):
 	if _body.is_in_group("hazard"):
 		hide()
 		hit.emit()
+		velocity = Vector2.ZERO
 		$CollisionShape2D.set_deferred("disabled", true)
 	elif _body.is_in_group("wall"):
 		# Push player back (simple wall behavior)
-		position -= velocity * 0.1
-		velocity = Vector2.ZERO
+		#position -= velocity * 0.01
+		#velocity = Vector2.ZERO
+		velocity = -velocity
 	elif _body.is_in_group("ball"):
 		pass
 		

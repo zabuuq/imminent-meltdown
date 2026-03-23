@@ -11,13 +11,22 @@ var velocity = Vector2.ZERO
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
+	$AnimatedSprite2D.play()
+#	if velocity.length() > 0:
+#		velocity = velocity.normalized() * speed
+#		$AnimatedSprite2D.play()
+#	else:
+#		$AnimatedSprite2D.stop()
 		
 	position += velocity * delta
+	if position.x >= 2400:
+		queue_free()	
+	if position.x <= 0:
+		queue_free()	
+	if position.y >= 2400:
+		queue_free()	
+	if position.y <= 0:
+		queue_free()	
 	#position = position.clamp(Vector2.ZERO, screen_size)
 		
 #	# Never flip the sprite vertically

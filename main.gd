@@ -23,7 +23,7 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
-	$HUD.show_message("Get to Work!")
+	$HUD.show_message("Get to work!")
 	get_tree().call_group("mobs", "queue_free")
 	$Music.play()
 
@@ -35,6 +35,10 @@ func _on_score_timer_timeout():
 	score -= 1
 	$HUD.update_score(score)
 	
+	if score != 359:
+		$HUD.show_message("No time to stop!")
+	if score != 358:
+		$HUD.show_message("")
 	if score <= 0:
 		game_over()
 	
