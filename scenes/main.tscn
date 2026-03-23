@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://cgb226hqsuv23"]
 
-[ext_resource type="Script" uid="uid://bfaexhaohh8qb" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cpebqanbc00uj" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bh6hif527527n" path="res://radioactive_worker.tscn" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://bfaexhaohh8qb" path="res://scenes/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cpebqanbc00uj" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bh6hif527527n" path="res://scenes/radioactive_worker.tscn" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b5xvjfdqriqio" path="res://art/roguelikeDungeon_transparent.png" id="3_272bh"]
-[ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tilemap.png" id="4_4c57u"]
-[ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://art/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
-[ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://art/gameover.wav" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://bhww0307ehc4v" path="res://LongRedWall.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://cmovg2v1xook5" path="res://ball.tscn" id="9_kek77"]
+[ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
+[ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://audio/gameover.wav" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://bhww0307ehc4v" path="res://scenes/LongRedWall.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cmovg2v1xook5" path="res://scenes/ball.tscn" id="9_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("3_272bh")

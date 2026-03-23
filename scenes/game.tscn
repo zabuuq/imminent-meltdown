@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhjpvuh6ms2kx"]
 
-[ext_resource type="PackedScene" uid="uid://cgb226hqsuv23" path="res://main.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cgb226hqsuv23" path="res://scenes/main.tscn" id="1_uwrxv"]
 
 [node name="Game" type="Node" unique_id=609694446]
 
@@ -15,4 +15,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.39215687, 0.39215687, 0.39215687, 1)
 
-[node name="Main" parent="." unique_id=1879869702 instance=ExtResource("1_80nbo")]
+[node name="Main" parent="." unique_id=1879869702 instance=ExtResource("1_uwrxv")]

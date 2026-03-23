@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bh6hif527527n"]
 
 [ext_resource type="Texture2D" uid="uid://b7mausn7r8yuk" path="res://art/RadWorker-forward-1.png" id="1_mwvxx"]
-[ext_resource type="Script" uid="uid://c8ol80ea5rn51" path="res://radioactive_worker.gd" id="1_yps6u"]
+[ext_resource type="Script" uid="uid://c8ol80ea5rn51" path="res://scenes/radioactive_worker.gd" id="1_yps6u"]
 [ext_resource type="Texture2D" uid="uid://dyfdqwyu6s0fs" path="res://art/RadWorker-forward-2.png" id="2_yps6u"]
 [ext_resource type="Texture2D" uid="uid://bbkmo3w604v2v" path="res://art/RadWorker-forward-3.png" id="3_1vea6"]
 [ext_resource type="Texture2D" uid="uid://cyxw5srkg53ww" path="res://art/RadWorker-horizontal-1.png" id="4_0roc5"]

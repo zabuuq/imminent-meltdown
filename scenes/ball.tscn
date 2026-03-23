@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmovg2v1xook5"]
 
-[ext_resource type="Script" path="res://ball.gd" id="1_41u45"]
+[ext_resource type="Script" uid="uid://b3xy50bstb2b7" path="res://scenes/ball.gd" id="1_41u45"]
 [ext_resource type="Texture2D" uid="uid://cfoxv04linxbr" path="res://art/BlueCircle.png" id="1_r6n28"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
