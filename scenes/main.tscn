@@ -1723,6 +1723,12 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(1600, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(20, 840)
+
 [node name="Main" type="Node" unique_id=1879869702]
 script = ExtResource("1_0xm2m")
 radioactive_worker_scene = ExtResource("2_7mycd")
@@ -1780,6 +1786,26 @@ position = Vector2(352, 416)
 
 [node name="Ball4" parent="." unique_id=1752073041 instance=ExtResource("9_kek77")]
 position = Vector2(928, 392)
+
+[node name="OuterWalls" type="Node2D" parent="." unique_id=543477979]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OuterWalls" unique_id=1990309512]
+
+[node name="TopWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=764879015]
+position = Vector2(800, -10)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="RightWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=649378852]
+position = Vector2(1610, 400)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="BottomWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=1102347770]
+position = Vector2(800, 810)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="LeftWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=2102790934]
+position = Vector2(-10, 400)
+shape = SubResource("RectangleShape2D_ya4ey")
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
