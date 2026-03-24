@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://audio/gameover.wav" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bhww0307ehc4v" path="res://scenes/LongRedWall.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cmovg2v1xook5" path="res://scenes/ball.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://diegutkindvm7" path="res://scenes/outer_walls.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("3_272bh")
@@ -1723,12 +1724,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
-size = Vector2(1600, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
-size = Vector2(20, 840)
-
 [node name="Main" type="Node" unique_id=1879869702]
 script = ExtResource("1_0xm2m")
 radioactive_worker_scene = ExtResource("2_7mycd")
@@ -1756,6 +1751,7 @@ position = Vector2(464, 712)
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=188113294]
 stream = ExtResource("4_lquwl")
+volume_db = -20.0
 parameters/looping = true
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=470759346]
@@ -1769,11 +1765,15 @@ position = Vector2(576, 384)
 rotation = 1.5707964
 
 [node name="LongRedWall" parent="." unique_id=2113791741 instance=ExtResource("8_5vw27")]
-position = Vector2(605, 32)
+visible = false
+position = Vector2(785, -11)
+scale = Vector2(5.5, 0.5)
 
 [node name="LongRedWall2" parent="." unique_id=1985511283 instance=ExtResource("8_5vw27")]
-position = Vector2(32, 432)
+visible = false
+position = Vector2(-8, 411)
 rotation = 1.5707964
+scale = Vector2(3, 0.5)
 
 [node name="Ball" parent="." unique_id=39567682 instance=ExtResource("9_kek77")]
 position = Vector2(608, 288)
@@ -1787,25 +1787,18 @@ position = Vector2(352, 416)
 [node name="Ball4" parent="." unique_id=1752073041 instance=ExtResource("9_kek77")]
 position = Vector2(928, 392)
 
-[node name="OuterWalls" type="Node2D" parent="." unique_id=543477979]
+[node name="OuterWalls" parent="." unique_id=113394613 instance=ExtResource("11_ya4ey")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OuterWalls" unique_id=1990309512]
+[node name="LongRedWall3" parent="." unique_id=2128108953 instance=ExtResource("8_5vw27")]
+visible = false
+position = Vector2(1602, 409)
+rotation = 1.5707964
+scale = Vector2(3, 0.5)
 
-[node name="TopWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=764879015]
-position = Vector2(800, -10)
-shape = SubResource("RectangleShape2D_choun")
-
-[node name="RightWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=649378852]
-position = Vector2(1610, 400)
-shape = SubResource("RectangleShape2D_ya4ey")
-
-[node name="BottomWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=1102347770]
-position = Vector2(800, 810)
-shape = SubResource("RectangleShape2D_choun")
-
-[node name="LeftWallCollision" type="CollisionShape2D" parent="OuterWalls/StaticBody2D" unique_id=2102790934]
-position = Vector2(-10, 400)
-shape = SubResource("RectangleShape2D_ya4ey")
+[node name="LongRedWall4" parent="." unique_id=2101103980 instance=ExtResource("8_5vw27")]
+visible = false
+position = Vector2(803.00006, 811)
+scale = Vector2(5.5, 0.5)
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

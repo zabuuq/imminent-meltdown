@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://diegutkindvm7"]
+
+[sub_resource type="GDScript" id="GDScript_idcti"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	add_to_group(\"wall\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idcti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(1600, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(20, 840)
+
+[node name="OuterWalls" type="Node2D" unique_id=113394613]
+script = SubResource("GDScript_idcti")
+
+[node name="OuterWallCollisions" type="StaticBody2D" parent="." unique_id=684419981]
+physics_material_override = SubResource("PhysicsMaterial_idcti")
+
+[node name="TopWallCollision" type="CollisionShape2D" parent="OuterWallCollisions" unique_id=1425356480]
+position = Vector2(800, -10)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="RightWallCollision" type="CollisionShape2D" parent="OuterWallCollisions" unique_id=1935268830]
+position = Vector2(1610, 400)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="BottomWallCollision" type="CollisionShape2D" parent="OuterWallCollisions" unique_id=129213514]
+position = Vector2(800, 810)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="LeftWallCollision" type="CollisionShape2D" parent="OuterWallCollisions" unique_id=2119553288]
+position = Vector2(-10, 400)
+shape = SubResource("RectangleShape2D_ya4ey")
