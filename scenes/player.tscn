@@ -71,12 +71,12 @@ radius = 6.0
 height = 16.0
 
 [node name="Player" type="Area2D" unique_id=1393093222 groups=["player"]]
-position = Vector2(582, 743)
 script = ExtResource("1_1jxqw")
 speed = 200
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=756935328]
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ivps1")
 animation = &"down"
 
