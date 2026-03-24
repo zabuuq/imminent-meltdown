@@ -36,8 +36,7 @@ func _process(delta: float) -> void:
 	pass
 
 func update_score(score):
-	print('updating score')
-	#$ScoreLabel.text = str(score)
+	$MarginContainer/ScoreLabel.text = str(score)
 
 #func _on_start_button_pressed():
 	#$StartButtonMargin.hide()
