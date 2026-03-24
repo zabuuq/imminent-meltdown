@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tilemap.png" id="4_4c57u"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
-[ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://audio/gameover.wav" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bhww0307ehc4v" path="res://scenes/LongRedWall.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cmovg2v1xook5" path="res://scenes/ball.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://diegutkindvm7" path="res://scenes/outer_walls.tscn" id="11_ya4ey"]
@@ -1612,9 +1611,6 @@ position = Vector2(464, 712)
 stream = ExtResource("4_lquwl")
 volume_db = -20.0
 parameters/looping = true
-
-[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=470759346]
-stream = ExtResource("6_272bh")
 
 [node name="RWMobPath" type="Path2D" parent="." unique_id=644954499]
 curve = SubResource("Curve2D_7mycd")

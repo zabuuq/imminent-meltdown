@@ -17,7 +17,6 @@ func game_over():
 	$ScoreTimer.stop()
 	#$HUD.show_game_over()
 	$Music.stop()
-	$DeathSound.play()
 	$RWMobTimer.stop()
 
 	var game_over_level: PackedScene = load("res://scenes/game_over.tscn")

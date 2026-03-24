@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b444qqcd2oyc0" path="res://scenes/start_game.gd" id="1_wqhvx"]
 [ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://fonts/Xolonium-Regular.ttf" id="1_xeevv"]
+[ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://audio/gameover.wav" id="3_tbwuq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
 font_size = 125
@@ -81,3 +82,6 @@ theme_override_fonts/font = ExtResource("1_xeevv")
 theme_override_font_sizes/font_size = 50
 text = "press space to try again"
 horizontal_alignment = 1
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1028033288]
+stream = ExtResource("3_tbwuq")
