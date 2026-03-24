@@ -8,7 +8,9 @@ var screen_size # Size of the game window
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	add_to_group("player")
 	hide() #hides the player when the game starts
+	$BlueCircle.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta: float) -> void:
@@ -76,8 +78,7 @@ func _on_body_entered(_body):
 		#velocity = Vector2.ZERO
 		velocity = -velocity
 	elif _body.is_in_group("ball"):
-		pass
-		
+		$BlueCircle.show()
 		
 
 func start(pos):
