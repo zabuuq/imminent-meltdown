@@ -1804,4 +1804,3 @@ scale = Vector2(5.5, 0.5)
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="RWMobTimer" to="." method="_on_rw_mob_timer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]

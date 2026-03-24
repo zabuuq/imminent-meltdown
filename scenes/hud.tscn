@@ -6,64 +6,35 @@
 [node name="HUD" type="CanvasLayer" unique_id=714225299]
 script = ExtResource("1_64ctp")
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=803900667]
-anchors_preset = 10
-anchor_right = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=270866557]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
 offset_bottom = 78.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_8sq4i")
-theme_override_font_sizes/font_size = 100
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
+theme_override_constants/margin_top = 20
 
-[node name="Message" type="Label" parent="." unique_id=1268192100]
-anchors_preset = -1
-anchor_left = 0.44041666
-anchor_top = 0.439375
-anchor_right = 0.5629167
-anchor_bottom = 0.560625
-offset_left = -240.0
-offset_top = -617.0
-offset_right = 240.0
-offset_bottom = -296.0
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=803900667]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="MessageContainer" type="CenterContainer" parent="." unique_id=537198258]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_8sq4i")
-theme_override_font_sizes/font_size = 100
-text = "Meltdown
-Imminent!
 
-Shut down the reactor!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
+[node name="Message" type="Label" parent="MessageContainer" unique_id=1974466694]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Get to work!"
 
-[node name="StartButton" type="Button" parent="." unique_id=1821946845]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -140.0
-offset_right = 100.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_8sq4i")
-theme_override_font_sizes/font_size = 100
-text = "Start"
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
-
-[node name="MessageTimer" type="Timer" parent="." unique_id=1040101845]
-wait_time = 2.0
+[node name="MessageTimer" type="Timer" parent="." unique_id=189054572]
+wait_time = 1.5
 one_shot = true
-
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
