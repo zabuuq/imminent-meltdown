@@ -15,10 +15,14 @@ func _process(delta: float):
 
 func game_over():
 	$ScoreTimer.stop()
-	$HUD.show_game_over()
+	#$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
 	$RWMobTimer.stop()
+
+	var game_over_level: PackedScene = load("res://scenes/game_over.tscn")
+	get_tree().change_scene_to_packed(game_over_level)
+
 
 func new_game():
 	score = 360

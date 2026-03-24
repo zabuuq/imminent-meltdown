@@ -1,21 +1,12 @@
 [gd_scene format=3 uid="uid://dcgttp03luyk8"]
 
+[ext_resource type="Script" uid="uid://b444qqcd2oyc0" path="res://scenes/start_game.gd" id="1_wqhvx"]
 [ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://fonts/Xolonium-Regular.ttf" id="1_xeevv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
 font_size = 125
 font_color = Color(0.513617, 0.0005715767, 0.00031313868, 1)
 outline_size = 10
-
-[sub_resource type="GDScript" id="GDScript_tbwuq"]
-script/source = "extends MarginContainer
-
-var start_level: PackedScene = load(\"res://scenes/game.tscn\")
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(\"start_game\"):
-		get_tree().change_scene_to_packed(start_level)
-"
 
 [node name="GameOver" type="Control" unique_id=296842910]
 layout_mode = 3
@@ -24,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wqhvx")
 
 [node name="BackgroundColor" type="ColorRect" parent="." unique_id=1992180673]
 layout_mode = 1
@@ -81,7 +73,6 @@ offset_right = 484.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 20
-script = SubResource("GDScript_tbwuq")
 
 [node name="Start" type="Label" parent="StartContainer" unique_id=1593766007]
 layout_mode = 2

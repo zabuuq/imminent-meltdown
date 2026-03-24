@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw1ac8xrnsx3f"]
 
-[ext_resource type="Script" uid="uid://b444qqcd2oyc0" path="res://scenes/start_screen.gd" id="1_o7i0r"]
+[ext_resource type="Script" uid="uid://b444qqcd2oyc0" path="res://scenes/start_game.gd" id="1_o7i0r"]
 [ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://fonts/Xolonium-Regular.ttf" id="1_tx5wa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tx5wa"]
