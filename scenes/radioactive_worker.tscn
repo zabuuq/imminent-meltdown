@@ -70,15 +70,12 @@ radius = 3.0
 height = 8.0
 
 [node name="RadioactiveWorker" type="RigidBody2D" unique_id=1138154030]
-position = Vector2(165, 119)
-scale = Vector2(10, 10)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_yps6u")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1377040216]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_pjes1")
 animation = &"RWdown"
 
