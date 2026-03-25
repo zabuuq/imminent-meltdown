@@ -4806,7 +4806,7 @@ parameters/looping = true
 
 [node name="Player" parent="." unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
 
-[node name="StartPosition" type="Marker2D" parent="." unique_id=413662143]
+[node name="StartPosition" type="Marker2D" parent="Player" unique_id=413662143]
 position = Vector2(808, 520)
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
