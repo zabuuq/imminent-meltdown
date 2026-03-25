@@ -33,7 +33,6 @@ grow_vertical = 2
 [node name="Message" type="Label" parent="MessageContainer" unique_id=1974466694]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
-text = "Get to work!"
 
 [node name="MessageTimer" type="Timer" parent="." unique_id=189054572]
 wait_time = 1.5
