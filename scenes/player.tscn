@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cpebqanbc00uj"]
+[gd_scene format=3 uid="uid://db33bj0y833sr"]
 
-[ext_resource type="Script" uid="uid://bmigdhu1kjo70" path="res://scenes/player.gd" id="1_1jxqw"]
+[ext_resource type="Script" uid="uid://kysitqy7rn8d" path="res://scenes/player.gd" id="1_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://drqf1v6h4hnof" path="res://art/character-forward-2.png" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://druo3j8ih3v1t" path="res://art/character-forward-1.png" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://bonhrcx1pqtoi" path="res://art/character-forward-3.png" id="3_dw050"]
@@ -10,9 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://df86oa4a7g5hh" path="res://art/character-backward-2.png" id="6_ivps1"]
 [ext_resource type="Texture2D" uid="uid://bmnvhjckg02xg" path="res://art/character-horizontal-3.png" id="6_nvl01"]
 [ext_resource type="Texture2D" uid="uid://mxja51qss1cy" path="res://art/character-backward-3.png" id="7_urp6f"]
-[ext_resource type="Texture2D" uid="uid://cfoxv04linxbr" path="res://art/BlueCircle.png" id="11_d2wvv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -66,32 +65,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urp6f"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 6.0
 height = 16.0
 
-[node name="Player" type="Area2D" unique_id=1393093222 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1618940360]
 script = ExtResource("1_1jxqw")
-speed = 200
-metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=756935328]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1632457080]
 scale = Vector2(0.25, 0.25)
-sprite_frames = SubResource("SpriteFrames_ivps1")
+sprite_frames = SubResource("SpriteFrames_ur7pv")
 animation = &"down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1038961728]
-shape = SubResource("CapsuleShape2D_urp6f")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100048383]
+shape = SubResource("CapsuleShape2D_y4r1p")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=887225263]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1504412885]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
-[node name="BlueCircle" type="Sprite2D" parent="." unique_id=276915962]
-position = Vector2(-5, 0)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("11_d2wvv")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="hit" from="." to="." method="game_over"]
+[node name="StartPosition" type="Marker2D" parent="." unique_id=1006960751]
+position = Vector2(808, 328)
