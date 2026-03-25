@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bhww0307ehc4v" path="res://scenes/LongRedWall.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cmovg2v1xook5" path="res://scenes/ball.tscn" id="9_kek77"]
-[ext_resource type="PackedScene" uid="uid://diegutkindvm7" path="res://scenes/outer_walls.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("3_272bh")
@@ -1637,7 +1636,7 @@ wait_time = 2.0
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=188113294]
 stream = ExtResource("4_lquwl")
-volume_db = -20.0
+volume_db = -80.0
 parameters/looping = true
 
 [node name="RWMobPath" type="Path2D" parent="." unique_id=644954499]
@@ -1665,8 +1664,6 @@ position = Vector2(352, 416)
 
 [node name="Ball4" parent="." unique_id=1752073041 instance=ExtResource("9_kek77")]
 position = Vector2(928, 392)
-
-[node name="OuterWalls" parent="." unique_id=113394613 instance=ExtResource("11_ya4ey")]
 
 [node name="LongRedWall3" parent="." unique_id=2128108953 instance=ExtResource("8_5vw27")]
 position = Vector2(1208, 151)
