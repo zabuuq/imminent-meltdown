@@ -34,5 +34,6 @@ func handle_collisions():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		if collider is TileMapLayer and collider.get_parent().name == "Rooms":
-			velocity = velocity.bounce(collision.get_normal())
+		if collider is TileMapLayer and collider.get_parent().name == "Map":
+			#velocity = velocity.bounce(collision.get_normal())
+			pass
