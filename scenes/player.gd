@@ -1,30 +1,24 @@
 extends CharacterBody2D
 
-var direction_x := 0
-var direction_y := 0
+var input_direction = Vector2.ZERO
 var speed := 150
 
-func _process(delta: float) -> void:
-	get_input()
+func _process(_delta: float) -> void:
+	handle_movement()
+	handle_collisions()
+
+func handle_movement():
+	input_direction.x = Input.get_axis("move_left","move_right")
+	input_direction.y = Input.get_axis("move_up","move_down")
 	
-	if direction_x != 0:
-		velocity.x = direction_x * speed
-		velocity.y = 0
-		
-	if direction_y != 0:
-		velocity.y = direction_y * speed
-		velocity.x = 0
-	
+	if input_direction.length() > 0:
+		velocity = input_direction * speed
+
 	move_and_slide()
 	set_animation()
 
-func get_input():
-	direction_x = Input.get_axis("move_left","move_right")
-	direction_y = Input.get_axis("move_up","move_down")
-
 func set_animation():
-	if velocity:
-		velocity = velocity.normalized() * speed
+	if velocity.length() > 0:
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
@@ -34,3 +28,11 @@ func set_animation():
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "down" if velocity.y > 0 else "up"
+
+func handle_collisions():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is TileMapLayer and collider.get_parent().name == "Rooms":
+			velocity = velocity.bounce(collision.get_normal())
