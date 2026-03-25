@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cy0c65nvsgq3r" path="res://scenes/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db33bj0y833sr" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://b5xvjfdqriqio" path="res://art/roguelikeDungeon_transparent.png" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://b5xvjfdqriqio" path="res://art/tiles/roguelikeDungeon_transparent.png" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tilemap.png" id="4_4c57u"]
+[ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="4_4c57u"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cw43fldaqcn0c" path="res://scenes/radioactive_worker.tscn" id="7_o6xl0"]
 
