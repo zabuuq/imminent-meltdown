@@ -18,11 +18,6 @@ func handle_movement():
 	set_animation()
 
 func set_animation():
-	if velocity.length() > 0:
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
-
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "vertical"
 		$AnimatedSprite2D.flip_h = velocity.x < 0

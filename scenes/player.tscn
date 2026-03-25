@@ -32,6 +32,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_1jxqw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_nvl01")
 }, {
 "duration": 1.0,
@@ -77,7 +85,8 @@ script = ExtResource("1_1jxqw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1632457080]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"down"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100048383]
 shape = SubResource("CapsuleShape2D_y4r1p")

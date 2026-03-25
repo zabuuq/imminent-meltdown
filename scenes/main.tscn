@@ -4810,9 +4810,11 @@ parameters/looping = true
 [node name="StartPosition" type="Marker2D" parent="Player" unique_id=413662143]
 position = Vector2(808, 520)
 
-[node name="RadioactiveWorker" parent="." unique_id=1851998664 instance=ExtResource("7_o6xl0")]
+[node name="Mobs" type="Node2D" parent="." unique_id=667070488]
 
-[node name="StartPosition" type="Marker2D" parent="RadioactiveWorker" unique_id=140818436]
+[node name="RadioactiveWorker" parent="Mobs" unique_id=1851998664 instance=ExtResource("7_o6xl0")]
+
+[node name="StartPosition" type="Marker2D" parent="Mobs/RadioactiveWorker" unique_id=140818436]
 position = Vector2(808, 472)
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

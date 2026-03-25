@@ -26,24 +26,15 @@ animations = [{
 "texture": ExtResource("3_1vea6")
 }],
 "loop": true,
-"name": &"RWdown",
+"name": &"down",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_0roc5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_tfhva")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_0roc5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_6rh0g")
+"texture": ExtResource("1_mwvxx")
 }],
 "loop": true,
-"name": &"RWside",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -60,7 +51,24 @@ animations = [{
 "texture": ExtResource("9_orarq")
 }],
 "loop": true,
-"name": &"RWup",
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0roc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tfhva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0roc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6rh0g")
+}],
+"loop": true,
+"name": &"vertical",
 "speed": 5.0
 }]
 
@@ -75,7 +83,8 @@ collision_mask = 13
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1704028573]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_innfb")
-animation = &"RWdown"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=345907660]
 shape = SubResource("CapsuleShape2D_innfb")
