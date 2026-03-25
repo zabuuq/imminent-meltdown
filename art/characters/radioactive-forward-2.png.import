@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyfdqwyu6s0fs"
-path="res://.godot/imported/RadWorker-forward-2.png-ebc6eeaaea7b0b6e54b0e5b1a486d881.ctex"
+path="res://.godot/imported/radioactive-forward-2.png-5c34c1b9f237130450a0773b062ca587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/RadWorker-forward-2.png"
-dest_files=["res://.godot/imported/RadWorker-forward-2.png-ebc6eeaaea7b0b6e54b0e5b1a486d881.ctex"]
+source_file="res://art/characters/radioactive-forward-2.png"
+dest_files=["res://.godot/imported/radioactive-forward-2.png-5c34c1b9f237130450a0773b062ca587.ctex"]
 
 [params]
 

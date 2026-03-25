@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyxw5srkg53ww"
-path="res://.godot/imported/RadWorker-horizontal-1.png-1afe449bf8a0ef5fb4ed671a3a00cd37.ctex"
+uid="uid://bjknxenxbq1bi"
+path="res://.godot/imported/radioactive-backward-1.png-942b784aa1d6d71cbf64ee4e83043782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/RadWorker-horizontal-1.png"
-dest_files=["res://.godot/imported/RadWorker-horizontal-1.png-1afe449bf8a0ef5fb4ed671a3a00cd37.ctex"]
+source_file="res://art/characters/radioactive-backward-1.png"
+dest_files=["res://.godot/imported/radioactive-backward-1.png-942b784aa1d6d71cbf64ee4e83043782.ctex"]
 
 [params]
 

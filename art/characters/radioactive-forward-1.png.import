@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdrogw101xbm2"
-path="res://.godot/imported/character-horizontal-1.png-d4e22afcc1d06d5336a959eaee097d44.ctex"
+uid="uid://b7mausn7r8yuk"
+path="res://.godot/imported/radioactive-forward-1.png-9902a818969e3885252a262c772db06b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character-horizontal-1.png"
-dest_files=["res://.godot/imported/character-horizontal-1.png-d4e22afcc1d06d5336a959eaee097d44.ctex"]
+source_file="res://art/characters/radioactive-forward-1.png"
+dest_files=["res://.godot/imported/radioactive-forward-1.png-9902a818969e3885252a262c772db06b.ctex"]
 
 [params]
 

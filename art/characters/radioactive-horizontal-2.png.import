@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckesn2d8o1wcv"
-path="res://.godot/imported/character-horizontal-2.png-14e472f8cfe49c894bbf566394728762.ctex"
+uid="uid://com0gcww2epa5"
+path="res://.godot/imported/radioactive-horizontal-2.png-89af66471398a90482d8a106ea949e1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character-horizontal-2.png"
-dest_files=["res://.godot/imported/character-horizontal-2.png-14e472f8cfe49c894bbf566394728762.ctex"]
+source_file="res://art/characters/radioactive-horizontal-2.png"
+dest_files=["res://.godot/imported/radioactive-horizontal-2.png-89af66471398a90482d8a106ea949e1c.ctex"]
 
 [params]
 
