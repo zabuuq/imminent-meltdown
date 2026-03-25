@@ -48,7 +48,7 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
-
+		
 		if body.is_in_group("hazard"):
 			die()
 		elif body.is_in_group("wall"):
