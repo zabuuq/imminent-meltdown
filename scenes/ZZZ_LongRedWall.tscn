@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhww0307ehc4v"]
 
-[ext_resource type="Script" uid="uid://bdh71xbwd5743" path="res://scenes/long_red_wall.gd" id="1_8tbxh"]
+[ext_resource type="Script" uid="uid://bdh71xbwd5743" path="res://scenes/ZZZ_long_red_wall.gd" id="1_8tbxh"]
 [ext_resource type="Texture2D" uid="uid://ddemd58ficxx5" path="res://art/LongRedWall.png" id="1_bx21m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8tbxh"]
