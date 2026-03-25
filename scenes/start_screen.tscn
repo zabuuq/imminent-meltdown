@@ -8,16 +8,6 @@ font_size = 125
 font_color = Color(0.513617, 0.0005715767, 0.00031313868, 1)
 outline_size = 10
 
-[sub_resource type="GDScript" id="GDScript_he1sj"]
-script/source = "extends MarginContainer
-
-var start_level: PackedScene = load(\"res://scenes/game.tscn\")
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(\"start_game\"):
-		get_tree().change_scene_to_packed(start_level)
-"
-
 [node name="StartScreen" type="Control" unique_id=767987488]
 layout_mode = 3
 anchors_preset = 15
@@ -83,7 +73,6 @@ offset_right = 484.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 20
-script = SubResource("GDScript_he1sj")
 
 [node name="Start" type="Label" parent="StartContainer" unique_id=1111275109]
 layout_mode = 2

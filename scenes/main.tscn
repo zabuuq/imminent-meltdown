@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://cgb226hqsuv23"]
 
-[ext_resource type="Script" uid="uid://bfaexhaohh8qb" path="res://scenes/main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cy0c65nvsgq3r" path="res://scenes/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db33bj0y833sr" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bh6hif527527n" path="res://scenes/radioactive_worker.tscn" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b5xvjfdqriqio" path="res://art/roguelikeDungeon_transparent.png" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tilemap.png" id="4_4c57u"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bhww0307ehc4v" path="res://scenes/LongRedWall.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://cmovg2v1xook5" path="res://scenes/ball.tscn" id="9_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("3_272bh")
@@ -1608,15 +1605,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5vw27")
 sources/1 = SubResource("TileSetAtlasSource_efxa6")
 
-[sub_resource type="Curve2D" id="Curve2D_7mycd"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 576, 384, 0, 0, 0, 0, 576, 448, 0, 0, 0, 0, 640, 448, 0, 0, 0, 0, 640, 384, 0, 0, 0, 0, 576, 384)
-}
-point_count = 5
-
 [node name="Main" type="Node" unique_id=1879869702]
 script = ExtResource("1_0xm2m")
-radioactive_worker_scene = ExtResource("2_7mycd")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1811528014]
 tile_set = SubResource("TileSet_kek77")
@@ -1629,9 +1619,6 @@ layer_0/tile_data = PackedInt32Array(-1, 1310721, 2, -65536, 1179649, 2, -65535,
 wait_time = 2.0
 one_shot = true
 
-[node name="RWMobTimer" type="Timer" parent="." unique_id=317644707]
-wait_time = 2.0
-
 [node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=188113294]
@@ -1639,42 +1626,7 @@ stream = ExtResource("4_lquwl")
 volume_db = -80.0
 parameters/looping = true
 
-[node name="RWMobPath" type="Path2D" parent="." unique_id=644954499]
-curve = SubResource("Curve2D_7mycd")
-
-[node name="RWMobSpawnLocation" type="PathFollow2D" parent="RWMobPath" unique_id=1419738794]
-position = Vector2(576, 384)
-rotation = 1.5707964
-
-[node name="LongRedWall" parent="." unique_id=2113791741 instance=ExtResource("8_5vw27")]
-position = Vector2(1462, 279)
-
-[node name="LongRedWall2" parent="." unique_id=1985511283 instance=ExtResource("8_5vw27")]
-position = Vector2(231, 394)
-rotation = 1.5707964
-
-[node name="Ball" parent="." unique_id=39567682 instance=ExtResource("9_kek77")]
-position = Vector2(608, 288)
-
-[node name="Ball2" parent="." unique_id=288644606 instance=ExtResource("9_kek77")]
-position = Vector2(608, 568)
-
-[node name="Ball3" parent="." unique_id=1999893166 instance=ExtResource("9_kek77")]
-position = Vector2(352, 416)
-
-[node name="Ball4" parent="." unique_id=1752073041 instance=ExtResource("9_kek77")]
-position = Vector2(928, 392)
-
-[node name="LongRedWall3" parent="." unique_id=2128108953 instance=ExtResource("8_5vw27")]
-position = Vector2(1208, 151)
-rotation = 1.5707964
-
-[node name="LongRedWall4" parent="." unique_id=2101103980 instance=ExtResource("8_5vw27")]
-position = Vector2(829, 665)
-
 [node name="Player" parent="." unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
-[connection signal="timeout" from="RWMobTimer" to="." method="_on_rw_mob_timer_timeout"]
-[connection signal="hit" from="Player" to="." method="game_over"]
