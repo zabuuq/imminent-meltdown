@@ -1648,15 +1648,11 @@ position = Vector2(576, 384)
 rotation = 1.5707964
 
 [node name="LongRedWall" parent="." unique_id=2113791741 instance=ExtResource("8_5vw27")]
-visible = false
-position = Vector2(785, -11)
-scale = Vector2(5.5, 0.5)
+position = Vector2(1462, 279)
 
 [node name="LongRedWall2" parent="." unique_id=1985511283 instance=ExtResource("8_5vw27")]
-visible = false
-position = Vector2(-8, 411)
+position = Vector2(231, 394)
 rotation = 1.5707964
-scale = Vector2(3, 0.5)
 
 [node name="Ball" parent="." unique_id=39567682 instance=ExtResource("9_kek77")]
 position = Vector2(608, 288)
@@ -1673,18 +1669,15 @@ position = Vector2(928, 392)
 [node name="OuterWalls" parent="." unique_id=113394613 instance=ExtResource("11_ya4ey")]
 
 [node name="LongRedWall3" parent="." unique_id=2128108953 instance=ExtResource("8_5vw27")]
-visible = false
-position = Vector2(1602, 409)
+position = Vector2(1208, 151)
 rotation = 1.5707964
-scale = Vector2(3, 0.5)
 
 [node name="LongRedWall4" parent="." unique_id=2101103980 instance=ExtResource("8_5vw27")]
-visible = false
-position = Vector2(803.00006, 811)
-scale = Vector2(5.5, 0.5)
+position = Vector2(829, 665)
 
-[node name="Player" parent="." unique_id=1618940360 instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="RWMobTimer" to="." method="_on_rw_mob_timer_timeout"]
+[connection signal="hit" from="Player" to="." method="game_over"]
