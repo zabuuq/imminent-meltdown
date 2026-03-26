@@ -5,7 +5,8 @@ const CONDUIT = preload("res://scenes/conduit.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.y += sin(Time.get_ticks_msec() / 200.0) * 10 * delta
+	var rng := RandomNumberGenerator.new()
+	position.y += sin(Time.get_ticks_msec() / rng.randf_range(175, 200)) * 10 * delta
 
 
 func _on_body_entered(body: Node2D) -> void:
