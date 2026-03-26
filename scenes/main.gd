@@ -1,13 +1,13 @@
 extends Node
 
 const CONDUIT_SCENE = preload("res://scenes/conduit.tscn")
+const RAD_WORKER_SCENE = preload("res://scenes/radioactive_worker.tscn")
 const MAX_ATTEMPTS = 500
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Player.position = $Player/StartPosition.position
-	$Mobs/RadioactiveWorker.position = $Mobs/RadioactiveWorker/StartPosition.position
+	$Player/Player.position = $Player/StartPosition.position
 	spawn_objects(CONDUIT_SCENE, 25)
 
 
@@ -37,11 +37,14 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 
 		if not is_blocked:
 			var conduit := object_scene.instantiate()
-			add_child(conduit)
+			$Objects.add_child(conduit)
 			conduit.position = Vector2(tile * tile_size)
 			placed += 1
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _on_mob_spawn_timer_timeout() -> void:
+	$RadWorker/MobSpawnTimer.wait_time += 1
+
+	var rad_worker := RAD_WORKER_SCENE.instantiate()
+	rad_worker.position = $RadWorker/StartPosition.position
+	$RadWorker.add_child(rad_worker)

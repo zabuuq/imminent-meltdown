@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="4_4c57u"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
-[ext_resource type="PackedScene" uid="uid://cw43fldaqcn0c" path="res://scenes/radioactive_worker.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")
@@ -7059,19 +7058,26 @@ stream = ExtResource("4_lquwl")
 volume_db = -80.0
 parameters/looping = true
 
-[node name="Player" parent="." unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
+[node name="Player" type="Node2D" parent="." unique_id=332799602]
+
+[node name="Player" parent="Player" unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
 
 [node name="StartPosition" type="Marker2D" parent="Player" unique_id=413662143]
 position = Vector2(808, 520)
+scale = Vector2(0.23, 0.23)
 
-[node name="Mobs" type="Node2D" parent="." unique_id=667070488]
+[node name="RadWorker" type="Node2D" parent="." unique_id=667070488]
 
-[node name="RadioactiveWorker" parent="Mobs" unique_id=1851998664 instance=ExtResource("7_o6xl0")]
-
-[node name="StartPosition" type="Marker2D" parent="Mobs/RadioactiveWorker" unique_id=140818436]
+[node name="StartPosition" type="Marker2D" parent="RadWorker" unique_id=140818436]
 position = Vector2(808, 472)
+scale = Vector2(0.23, 0.23)
+
+[node name="MobSpawnTimer" type="Timer" parent="RadWorker" unique_id=2061601783]
+wait_time = 5.0
+autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="RadWorker/MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
