@@ -32,6 +32,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nvl01")
+}],
+"loop": true,
+"name": &"horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_1jxqw")
 }],
 "loop": true,
@@ -54,23 +71,6 @@ animations = [{
 "loop": true,
 "name": &"up",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_n7ghd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_b26j0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_n7ghd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_nvl01")
-}],
-"loop": true,
-"name": &"vertical",
-"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
@@ -78,7 +78,6 @@ radius = 21.0
 height = 62.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1618940360]
-position = Vector2(808, 520)
 scale = Vector2(0.23, 0.23)
 collision_mask = 30
 motion_mode = 1
@@ -87,13 +86,14 @@ script = ExtResource("1_1jxqw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1632457080]
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_ur7pv")
-animation = &"idle"
+animation = &"horizontal"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100048383]
 shape = SubResource("CapsuleShape2D_y4r1p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1504412885]
+enabled = false
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
