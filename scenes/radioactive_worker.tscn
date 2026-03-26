@@ -74,14 +74,14 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_innfb"]
 radius = 5.0
-height = 16.0
+height = 14.0
 
 [node name="RadioactiveWorker" type="Area2D" unique_id=1851998664]
 collision_layer = 2
 collision_mask = 13
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1704028573]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_innfb")
 animation = &"idle"
 autoplay = "idle"
