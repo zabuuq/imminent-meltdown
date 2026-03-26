@@ -1,6 +1,6 @@
 extends Control
 
-var start_level: PackedScene = load("res://scenes/game.tscn")
+var start_level: PackedScene = load("res://scenes/main.tscn")
 
 func _ready() -> void:
 	if has_node("DeathSound"):
