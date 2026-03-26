@@ -31,11 +31,11 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 			rng.randi_range(min_tile.y, max_tile.y)
 		)
 
-		var in_wall := walls.get_cell_source_id(tile) != -1
-		var in_machine := machines.get_cell_source_id(tile) != -1
-		var in_machine_innards := machine_innards.get_cell_source_id(tile) != -1
+		var is_blocked := walls.get_cell_source_id(tile) != -1
+		is_blocked = true if machines.get_cell_source_id(tile) != -1 else is_blocked
+		is_blocked = true if machine_innards.get_cell_source_id(tile) != -1 else is_blocked
 
-		if not in_wall and not in_machine and not in_machine_innards:
+		if not is_blocked:
 			var conduit := object_scene.instantiate()
 			add_child(conduit)
 			conduit.position = Vector2(tile * tile_size)
