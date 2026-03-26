@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="4_4c57u"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cw43fldaqcn0c" path="res://scenes/radioactive_worker.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bedc5w066tgke" path="res://scenes/conduit.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("4_4c57u")
@@ -4819,8 +4818,6 @@ position = Vector2(808, 520)
 position = Vector2(808, 472)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
-
-[node name="Conduit" parent="Objects" unique_id=134254830 instance=ExtResource("8_tipki")]
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

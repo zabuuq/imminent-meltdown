@@ -88,3 +88,5 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=345907660]
 shape = SubResource("CapsuleShape2D_innfb")
+
+[node name="Holding" type="Node2D" parent="." unique_id=704387422]
