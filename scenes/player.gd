@@ -8,8 +8,8 @@ func _physics_process(_delta: float) -> void:
 	handle_collisions()
 
 func handle_movement():
-	input_direction.x = Input.get_axis("move_left","move_right")
-	input_direction.y = Input.get_axis("move_up","move_down")
+	input_direction.x = Input.get_axis('move_left','move_right')
+	input_direction.y = Input.get_axis('move_up','move_down')
 	
 	if input_direction.length() > 0:
 		velocity = input_direction * speed
@@ -19,16 +19,16 @@ func handle_movement():
 
 func set_animation():
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "horizontal"
+		$AnimatedSprite2D.animation = 'horizontal'
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "down" if velocity.y > 0 else "up"
+		$AnimatedSprite2D.animation = 'down' if velocity.y > 0 else 'up'
 
 func handle_collisions():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		if collider is TileMapLayer and collider.get_parent().name == "Map":
+		if collider is TileMapLayer and collider.get_parent().name == 'Map':
 			#velocity = velocity.bounce(collision.get_normal())
 			pass

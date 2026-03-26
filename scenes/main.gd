@@ -1,7 +1,7 @@
 extends Node
 
-const CONDUIT_SCENE = preload("res://scenes/conduit.tscn")
-const RAD_WORKER_SCENE = preload("res://scenes/radioactive_worker.tscn")
+const CONDUIT_SCENE = preload('res://scenes/conduit.tscn')
+const RAD_WORKER_SCENE = preload('res://scenes/radioactive_worker.tscn')
 const MAX_ATTEMPTS = 500
 
 
