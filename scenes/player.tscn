@@ -85,6 +85,7 @@ motion_mode = 1
 script = ExtResource("1_1jxqw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1632457080]
+texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_ur7pv")
 animation = &"idle"
 autoplay = "idle"
