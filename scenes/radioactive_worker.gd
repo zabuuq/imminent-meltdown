@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 var speed := 75
 var goal: Node
-
-
-func _ready() -> void:
-	pass
+@onready var player = get_tree().get_first_node_in_group('Player')
 
 func _physics_process(delta: float) -> void:
+	if (position.distance_to(player.global_position)) < 80:
+		$NavigationAgent2D.target_position = player.global_position
+
 	if (!$NavigationAgent2D.is_navigation_finished()):
 		var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
 		velocity = nav_point_direction * speed
@@ -16,22 +16,22 @@ func _physics_process(delta: float) -> void:
 
 
 func set_animation():
-	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "horizontal"
+	if abs(velocity.x) >= abs(velocity.y):
+		$AnimatedSprite2D.animation = 'horizontal'
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "down" if velocity.y > 0 else "up"
+	else:
+		$AnimatedSprite2D.animation = 'down' if velocity.y > 0 else 'up'
 
 
 func set_random_target() -> void:
 	var nav_candidates: Array[Node] = []
-	var main = get_tree().root.get_node("Main")
+	var main = get_tree().root.get_node('Main')
 
-	nav_candidates.append_array(main.get_node("Player").get_children())
-	for rad_worker in main.get_node("RadWorker").get_children():
+	nav_candidates.append_array(main.get_node('Player').get_children())
+	for rad_worker in main.get_node('RadWorker').get_children():
 		if rad_worker != self:
 			nav_candidates.append(rad_worker)
-	nav_candidates.append_array(main.get_node("Objects").get_children())
+	nav_candidates.append_array(main.get_node('Objects').get_children())
 
 	if nav_candidates.is_empty():
 		return
@@ -47,10 +47,3 @@ func _on_start_moving_timer_timeout() -> void:
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	set_random_target()
-
-
-func _on_follow_timer_timeout() -> void:
-	#if ($NavigationAgent2D.target_position != goal.global_position):
-		#$NavigationAgent2D.target_position = goal.global_position
-		
-	$FollowTimer.start()

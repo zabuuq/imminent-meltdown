@@ -106,9 +106,5 @@ debug_enabled = true
 one_shot = true
 autostart = true
 
-[node name="FollowTimer" type="Timer" parent="." unique_id=1169333990]
-one_shot = true
-
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="StartMovingTimer" to="." method="_on_start_moving_timer_timeout"]
-[connection signal="timeout" from="FollowTimer" to="." method="_on_follow_timer_timeout"]
