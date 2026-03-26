@@ -3,7 +3,7 @@ extends CharacterBody2D
 var input_direction = Vector2.ZERO
 var speed := 150
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	handle_movement()
 	handle_collisions()
 
