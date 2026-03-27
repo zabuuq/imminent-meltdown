@@ -32,6 +32,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("1_mwvxx")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i2ax7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"dying",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_0roc5")
 }, {
 "duration": 1.0,
@@ -87,7 +104,7 @@ script = ExtResource("1_qycfq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1704028573]
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_innfb")
-animation = &"horizontal"
+animation = &"dying"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=345907660]
@@ -105,5 +122,12 @@ path_postprocessing = 1
 one_shot = true
 autostart = true
 
+[node name="DeathTimer" type="Timer" parent="." unique_id=1553112458]
+
+[node name="DyingTimer" type="Timer" parent="." unique_id=2055638566]
+wait_time = 2.0
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="StartMovingTimer" to="." method="_on_start_moving_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="DyingTimer" to="." method="_on_dying_timer_timeout"]
