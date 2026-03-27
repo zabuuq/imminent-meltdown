@@ -92,7 +92,19 @@ func _on_drop_timer_timeout() -> void:
 		else:
 			drop_pos = global_position
 
+	drop_pos = snap_to_tile_center(drop_pos)
+	if drop_pos == snap_to_tile_center(global_position):
+		var tile_step := Vector2(16.0 * sign(drop_dir.x), 0) if abs(drop_dir.x) >= abs(drop_dir.y) \
+			else Vector2(0, 16.0 * sign(drop_dir.y))
+		var candidate := drop_pos + tile_step
+		if _is_on_navmesh(nav_map, candidate + Vector2(8, 8)):
+			drop_pos = candidate
+
 	item.global_position = drop_pos
+
+
+func snap_to_tile_center(pos: Vector2) -> Vector2:
+	return (pos / 16.0).floor() * 16.0
 
 
 func _is_on_navmesh(nav_map: RID, pos: Vector2) -> bool:

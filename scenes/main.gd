@@ -12,10 +12,8 @@ func _ready() -> void:
 
 
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
-	var walls := $Map/Walls as TileMapLayer
-	var machines := $Map/Machines as TileMapLayer
-	var machine_innards := $Map/MachineInnards as TileMapLayer
-	var tile_size: Vector2i = walls.tile_set.tile_size
+	var floor_layer := $Map/Floor as TileMapLayer
+	var tile_size: Vector2i = floor_layer.tile_set.tile_size
 
 	var min_tile := Vector2i(0, 0)
 	var max_tile := Vector2i(99, 49)
@@ -30,14 +28,10 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 			randi_range(min_tile.y, max_tile.y)
 		)
 
-		var is_blocked := walls.get_cell_source_id(tile) != -1
-		is_blocked = true if machines.get_cell_source_id(tile) != -1 else is_blocked
-		is_blocked = true if machine_innards.get_cell_source_id(tile) != -1 else is_blocked
-
-		if not is_blocked:
-			var conduit := object_scene.instantiate()
-			$Objects.add_child(conduit)
-			conduit.position = Vector2(tile * tile_size)
+		if floor_layer.get_cell_source_id(tile) != -1:
+			var object := object_scene.instantiate()
+			$Objects.add_child(object)
+			object.global_position = floor_layer.to_global(Vector2(tile * tile_size))
 			placed += 1
 
 
