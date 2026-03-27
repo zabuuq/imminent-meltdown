@@ -32,3 +32,8 @@ func handle_collisions():
 		if collider is TileMapLayer and collider.get_parent().name == 'Map':
 			#velocity = velocity.bounce(collision.get_normal())
 			pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print('body entered')
+	print(body)

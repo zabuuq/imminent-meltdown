@@ -80,7 +80,7 @@ height = 62.0
 [node name="RadioactiveWorker" type="CharacterBody2D" unique_id=2050500498]
 scale = Vector2(0.23, 0.23)
 collision_layer = 2
-collision_mask = 13
+collision_mask = 12
 motion_mode = 1
 script = ExtResource("1_qycfq")
 
@@ -98,7 +98,6 @@ path_desired_distance = 4.0
 target_desired_distance = 8.0
 path_max_distance = 160.0
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Holding" type="Node2D" parent="." unique_id=704387422]
 
