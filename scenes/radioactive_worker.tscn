@@ -141,7 +141,10 @@ autostart = true
 [node name="DyingTimer" type="Timer" parent="." unique_id=2055638566]
 wait_time = 2.0
 
+[node name="DropTimer" type="Timer" parent="." unique_id=87233503]
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="StartMovingTimer" to="." method="_on_start_moving_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="DyingTimer" to="." method="_on_dying_timer_timeout"]
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
