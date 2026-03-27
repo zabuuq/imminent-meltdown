@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal update_health(health: float)
+
 var input_direction = Vector2.ZERO
 var speed := 150
 var health := 5.0
@@ -84,5 +86,4 @@ func _is_on_navmesh(nav_map: RID, pos: Vector2) -> bool:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	health -= 1
-	print('health: ' + str(health))
-	print(body)
+	update_health.emit(health)
