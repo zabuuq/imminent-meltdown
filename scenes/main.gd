@@ -43,7 +43,8 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 
 
 func _on_mob_spawn_timer_timeout() -> void:
-	$RadWorker/MobSpawnTimer.wait_time += 1
+	# Set the next spawn time between 1 and 10 seconds
+	$RadWorker/MobSpawnTimer.wait_time = randi() % 10 + 1
 
 	var rad_worker := RAD_WORKER_SCENE.instantiate()
 	rad_worker.position = $RadWorker/StartPosition.position

@@ -7,8 +7,8 @@ var can_move := false
 
 
 func _ready() -> void:
-	# Set death timer
-	$DeathTimer.wait_time = randi() % 60
+	# Set death timer between 5 and 60 seconds
+	$DeathTimer.wait_time = randi() % 56 + 5
 	$DeathTimer.start()
 
 
