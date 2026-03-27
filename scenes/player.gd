@@ -70,6 +70,8 @@ func handle_dropping():
 				drop_pos = candidate
 
 		item.global_position = drop_pos
+		if item.has_method('drop'):
+			item.drop()
 
 
 func snap_to_tile_center(pos: Vector2) -> Vector2:

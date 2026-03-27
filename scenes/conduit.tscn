@@ -22,4 +22,8 @@ region_rect = Rect2(391, 346, 16, 4)
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_2km5q")
 
+[node name="CoolDown" type="Timer" parent="." unique_id=1451555010]
+wait_time = 0.5
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
