@@ -12,7 +12,6 @@ func _ready() -> void:
 
 
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
-	var rng := RandomNumberGenerator.new()
 	var walls := $Map/Walls as TileMapLayer
 	var machines := $Map/Machines as TileMapLayer
 	var machine_innards := $Map/MachineInnards as TileMapLayer
@@ -27,8 +26,8 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 	while placed < count and attempts < MAX_ATTEMPTS:
 		attempts += 1
 		var tile := Vector2i(
-			rng.randi_range(min_tile.x, max_tile.x),
-			rng.randi_range(min_tile.y, max_tile.y)
+			randi_range(min_tile.x, max_tile.x),
+			randi_range(min_tile.y, max_tile.y)
 		)
 
 		var is_blocked := walls.get_cell_source_id(tile) != -1
@@ -44,7 +43,7 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 
 func _on_mob_spawn_timer_timeout() -> void:
 	# Set the next spawn time between 1 and 10 seconds
-	$RadWorker/MobSpawnTimer.wait_time = randi() % 10 + 1
+	$RadWorker/MobSpawnTimer.wait_time = randi_range(1, 10)
 
 	var rad_worker := RAD_WORKER_SCENE.instantiate()
 	rad_worker.position = $RadWorker/StartPosition.position
