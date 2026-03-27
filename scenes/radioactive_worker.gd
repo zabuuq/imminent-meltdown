@@ -5,10 +5,10 @@ var goal: Node
 @onready var player = get_tree().get_first_node_in_group('Player')
 
 func _physics_process(delta: float) -> void:
-	if (position.distance_to(player.global_position)) < 80:
+	if position.distance_to(player.global_position) < 80 and position.distance_to(player.global_position) > 8:
 		$NavigationAgent2D.target_position = player.global_position
 
-	if (!$NavigationAgent2D.is_navigation_finished()):
+	if !$NavigationAgent2D.is_navigation_finished():
 		var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
 		velocity = nav_point_direction * speed
 		move_and_slide()
@@ -29,7 +29,7 @@ func set_random_target() -> void:
 
 	nav_candidates.append_array(main.get_node('Player').get_children())
 	for rad_worker in main.get_node('RadWorker').get_children():
-		if rad_worker != self:
+		if rad_worker != self and rad_worker is CharacterBody2D:
 			nav_candidates.append(rad_worker)
 	nav_candidates.append_array(main.get_node('Objects').get_children())
 
