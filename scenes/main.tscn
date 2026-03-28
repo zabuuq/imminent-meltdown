@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://fskh3uuckphl" path="res://art/tiles/imment-meltdown-tilemap.png" id="4_85g3d"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dffdpnvyccn08" path="res://art/Particles/smoke_particle.png" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://d4lb344ga6giq" path="res://scenes/damage_indicator.tscn" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
@@ -6851,109 +6852,213 @@ separation = Vector2i(1, 1)
 30:3/0 = 0
 31:3/0 = 0
 0:4/0 = 0
+0:4/0/custom_data_0 = true
 1:4/0 = 0
+1:4/0/custom_data_0 = true
 2:4/0 = 0
+2:4/0/custom_data_0 = true
 3:4/0 = 0
+3:4/0/custom_data_0 = true
 4:4/0 = 0
+4:4/0/custom_data_0 = true
 5:4/0 = 0
+5:4/0/custom_data_0 = true
 6:4/0 = 0
+6:4/0/custom_data_0 = true
 7:4/0 = 0
+7:4/0/custom_data_0 = true
 8:4/0 = 0
+8:4/0/custom_data_0 = true
 9:4/0 = 0
+9:4/0/custom_data_0 = true
 10:4/0 = 0
+10:4/0/custom_data_0 = true
 11:4/0 = 0
+11:4/0/custom_data_0 = true
 12:4/0 = 0
+12:4/0/custom_data_0 = true
 13:4/0 = 0
+13:4/0/custom_data_0 = true
 14:4/0 = 0
+14:4/0/custom_data_0 = true
 15:4/0 = 0
+15:4/0/custom_data_0 = true
 16:4/0 = 0
+16:4/0/custom_data_0 = true
 17:4/0 = 0
+17:4/0/custom_data_0 = true
 18:4/0 = 0
+18:4/0/custom_data_0 = true
 19:4/0 = 0
+19:4/0/custom_data_0 = true
 20:4/0 = 0
+20:4/0/custom_data_0 = true
 21:4/0 = 0
+21:4/0/custom_data_0 = true
 22:4/0 = 0
+22:4/0/custom_data_0 = true
 23:4/0 = 0
+23:4/0/custom_data_0 = true
 24:4/0 = 0
+24:4/0/custom_data_0 = true
 25:4/0 = 0
+25:4/0/custom_data_0 = true
 0:5/0 = 0
+0:5/0/custom_data_0 = true
 1:5/0 = 0
+1:5/0/custom_data_0 = true
 2:5/0 = 0
+2:5/0/custom_data_0 = true
 3:5/0 = 0
+3:5/0/custom_data_0 = true
 4:5/0 = 0
+4:5/0/custom_data_0 = true
 5:5/0 = 0
+5:5/0/custom_data_0 = true
 6:5/0 = 0
+6:5/0/custom_data_0 = true
 7:5/0 = 0
+7:5/0/custom_data_0 = true
 8:5/0 = 0
+8:5/0/custom_data_0 = true
 9:5/0 = 0
+9:5/0/custom_data_0 = true
 10:5/0 = 0
+10:5/0/custom_data_0 = true
 11:5/0 = 0
+11:5/0/custom_data_0 = true
 12:5/0 = 0
+12:5/0/custom_data_0 = true
 13:5/0 = 0
+13:5/0/custom_data_0 = true
 14:5/0 = 0
+14:5/0/custom_data_0 = true
 15:5/0 = 0
+15:5/0/custom_data_0 = true
 16:5/0 = 0
+16:5/0/custom_data_0 = true
 17:5/0 = 0
+17:5/0/custom_data_0 = true
 18:5/0 = 0
+18:5/0/custom_data_0 = true
 19:5/0 = 0
+19:5/0/custom_data_0 = true
 20:5/0 = 0
+20:5/0/custom_data_0 = true
 21:5/0 = 0
+21:5/0/custom_data_0 = true
 22:5/0 = 0
+22:5/0/custom_data_0 = true
 23:5/0 = 0
+23:5/0/custom_data_0 = true
 24:5/0 = 0
+24:5/0/custom_data_0 = true
 25:5/0 = 0
+25:5/0/custom_data_0 = true
 0:6/0 = 0
+0:6/0/custom_data_0 = true
 1:6/0 = 0
+1:6/0/custom_data_0 = true
 2:6/0 = 0
+2:6/0/custom_data_0 = true
 3:6/0 = 0
+3:6/0/custom_data_0 = true
 4:6/0 = 0
+4:6/0/custom_data_0 = true
 6:6/0 = 0
+6:6/0/custom_data_0 = true
 7:6/0 = 0
+7:6/0/custom_data_0 = true
 8:6/0 = 0
+8:6/0/custom_data_0 = true
 9:6/0 = 0
+9:6/0/custom_data_0 = true
 10:6/0 = 0
+10:6/0/custom_data_0 = true
 11:6/0 = 0
+11:6/0/custom_data_0 = true
 12:6/0 = 0
+12:6/0/custom_data_0 = true
 13:6/0 = 0
+13:6/0/custom_data_0 = true
 14:6/0 = 0
+14:6/0/custom_data_0 = true
 19:6/0 = 0
+19:6/0/custom_data_0 = true
 20:6/0 = 0
+20:6/0/custom_data_0 = true
 22:6/0 = 0
+22:6/0/custom_data_0 = true
 24:6/0 = 0
+24:6/0/custom_data_0 = true
 0:7/0 = 0
+0:7/0/custom_data_0 = true
 1:7/0 = 0
+1:7/0/custom_data_0 = true
 2:7/0 = 0
+2:7/0/custom_data_0 = true
 3:7/0 = 0
+3:7/0/custom_data_0 = true
 6:7/0 = 0
+6:7/0/custom_data_0 = true
 7:7/0 = 0
+7:7/0/custom_data_0 = true
 8:7/0 = 0
+8:7/0/custom_data_0 = true
 9:7/0 = 0
+9:7/0/custom_data_0 = true
 10:7/0 = 0
+10:7/0/custom_data_0 = true
 11:7/0 = 0
+11:7/0/custom_data_0 = true
 12:7/0 = 0
+12:7/0/custom_data_0 = true
 13:7/0 = 0
+13:7/0/custom_data_0 = true
 14:7/0 = 0
+14:7/0/custom_data_0 = true
 15:7/0 = 0
+15:7/0/custom_data_0 = true
 16:7/0 = 0
+16:7/0/custom_data_0 = true
 17:7/0 = 0
+17:7/0/custom_data_0 = true
 18:7/0 = 0
+18:7/0/custom_data_0 = true
 19:7/0 = 0
+19:7/0/custom_data_0 = true
 20:7/0 = 0
+20:7/0/custom_data_0 = true
 22:7/0 = 0
+22:7/0/custom_data_0 = true
 24:7/0 = 0
+24:7/0/custom_data_0 = true
 5:6/0 = 0
+5:6/0/custom_data_0 = true
 15:6/0 = 0
+15:6/0/custom_data_0 = true
 16:6/0 = 0
+16:6/0/custom_data_0 = true
 17:6/0 = 0
+17:6/0/custom_data_0 = true
 18:6/0 = 0
+18:6/0/custom_data_0 = true
 21:6/0 = 0
+21:6/0/custom_data_0 = true
 21:7/0 = 0
+21:7/0/custom_data_0 = true
 23:6/0 = 0
+23:6/0/custom_data_0 = true
 23:7/0 = 0
+23:7/0/custom_data_0 = true
 25:6/0 = 0
+25:6/0/custom_data_0 = true
 25:7/0 = 0
+25:7/0/custom_data_0 = true
 4:7/0 = 0
+4:7/0/custom_data_0 = true
 5:7/0 = 0
+5:7/0/custom_data_0 = true
 26:4/0 = 0
 26:5/0 = 0
 26:6/0 = 0
@@ -6968,6 +7073,8 @@ separation = Vector2i(1, 1)
 31:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_choun"]
+custom_data_layer_0/name = "is_breakable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_85g3d")
 sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 
@@ -7588,6 +7695,8 @@ autostart = true
 [node name="MeltdownTimer" type="Timer" parent="." unique_id=2015017185]
 wait_time = 300.0
 
+[node name="DamageTimer" type="Timer" parent="." unique_id=404027985]
+
 [node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=188113294]
@@ -7606,13 +7715,18 @@ scale = Vector2(0.23, 0.23)
 [node name="RadWorker" type="Node2D" parent="." unique_id=667070488]
 
 [node name="StartPosition" type="Marker2D" parent="RadWorker" unique_id=140818436]
-position = Vector2(806, 328)
+position = Vector2(808, 328)
 scale = Vector2(0.23, 0.23)
 
 [node name="MobSpawnTimer" type="Timer" parent="RadWorker" unique_id=2061601783]
 wait_time = 5.0
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
+
+[node name="Damages" type="Node2D" parent="." unique_id=989905273]
+
+[node name="DamageIndicator" parent="Damages" unique_id=1336189838 instance=ExtResource("8_choun")]
+position = Vector2(864, 320)
 
 [node name="Particle Effects" type="Node2D" parent="." unique_id=1553616152]
 
