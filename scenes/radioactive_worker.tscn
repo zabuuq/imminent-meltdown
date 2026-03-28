@@ -130,7 +130,8 @@ radial_accel_max = 9.999997
 scale_min = 0.099999994
 scale_max = 0.79999995
 scale_curve = SubResource("CurveTexture_qfg44")
-hue_variation_min = -0.79
+color = Color(0.6862745, 0.99607843, 0.4627451, 1)
+hue_variation_min = -0.64
 hue_variation_max = -0.43
 
 [node name="RadioactiveWorker" type="CharacterBody2D" unique_id=2050500498]
@@ -169,7 +170,7 @@ wait_time = 2.0
 [node name="DropTimer" type="Timer" parent="." unique_id=87233503]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1458547222]
-amount = 3
+amount = 5
 amount_ratio = 0.5038
 texture = ExtResource("13_omoht")
 process_material = SubResource("ParticleProcessMaterial_tg4gf")

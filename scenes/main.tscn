@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="4_4c57u"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dffdpnvyccn08" path="res://art/Particles/smoke_particle.png" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")
@@ -7005,6 +7007,49 @@ separation = Vector2i(1, 1)
 [sub_resource type="TileSet" id="TileSet_tefeu"]
 sources/0 = SubResource("TileSetAtlasSource_tefeu")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tipki"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+gravity = Vector3(0, -50, 0)
+scale_min = 0.099999994
+scale_max = 0.25
+
+[sub_resource type="Curve" id="Curve_o6xl0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5933401), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tipki"]
+curve = SubResource("Curve_o6xl0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_85g3d"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+gravity = Vector3(0, -70, 0)
+scale_curve = SubResource("CurveTexture_tipki")
+
+[sub_resource type="Curve" id="Curve_85g3d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.234375, 0.71140265), 0.0, 0.0, 0, 0, Vector2(0.5182292, 0.99344105), 0.0, 0.0, 0, 0, Vector2(0.9947917, 0.41624624), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_choun"]
+curve = SubResource("Curve_85g3d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o6xl0"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 25.0
+initial_velocity_min = -1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -10.000002
+radial_accel_max = 9.999997
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_choun")
+color = Color(0.26666668, 1, 0, 1)
+
 [node name="Main" type="Node" unique_id=1879869702]
 script = ExtResource("1_0xm2m")
 
@@ -7076,6 +7121,31 @@ wait_time = 5.0
 autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
+
+[node name="SG1-Steam Effect" type="GPUParticles2D" parent="." unique_id=470529909]
+position = Vector2(640, 384)
+texture = ExtResource("7_o6xl0")
+process_material = SubResource("ParticleProcessMaterial_tipki")
+
+[node name="SG2-Steam Effect" type="GPUParticles2D" parent="." unique_id=16969842]
+position = Vector2(975, 384)
+texture = ExtResource("7_o6xl0")
+process_material = SubResource("ParticleProcessMaterial_tipki")
+
+[node name="SG1-Bubble Effect" type="GPUParticles2D" parent="." unique_id=714960001]
+position = Vector2(640, 431)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_85g3d")
+
+[node name="SG2-Bubble Effect" type="GPUParticles2D" parent="." unique_id=1536168298]
+position = Vector2(976, 432)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_85g3d")
+
+[node name="RX-Radiation Effect" type="GPUParticles2D" parent="." unique_id=1110107869]
+position = Vector2(809, 408)
+texture = ExtResource("8_tipki")
+process_material = SubResource("ParticleProcessMaterial_o6xl0")
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
