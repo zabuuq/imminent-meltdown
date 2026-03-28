@@ -4,6 +4,7 @@ var cell: Vector2i
 var conduits_layer: TileMapLayer
 var hud: Node
 var meltdown_timer: Timer
+var on_fixed: Callable
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -19,4 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 	holding.get_child(0).queue_free()
 	hud.remove_damage()
 	meltdown_timer.start(meltdown_timer.time_left + 15.0)
+	on_fixed.call()
 	queue_free()
