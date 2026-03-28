@@ -6,6 +6,7 @@ signal update_health(health: float)
 var input_direction = Vector2.ZERO
 var speed := 150
 var health := 5.0
+var can_move := false
 
 
 func _physics_process(_delta: float) -> void:
@@ -15,13 +16,21 @@ func _physics_process(_delta: float) -> void:
 
 
 func handle_movement():
+	if not can_move:
+		return
 	input_direction.x = Input.get_axis('move_left','move_right')
 	input_direction.y = Input.get_axis('move_up','move_down')
-	
+
 	if input_direction.length() > 0:
 		velocity = input_direction * speed
 
 	move_and_slide()
+	set_animation()
+
+
+func start_moving() -> void:
+	can_move = true
+	velocity = Vector2([-1, 1].pick_random() * speed, 0)
 	set_animation()
 
 

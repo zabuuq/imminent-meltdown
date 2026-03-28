@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cgb226hqsuv23"]
+[gd_scene format=4 uid="uid://dkryws5a68r6j"]
 
 [ext_resource type="Script" uid="uid://cy0c65nvsgq3r" path="res://scenes/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db33bj0y833sr" path="res://scenes/player.tscn" id="1_ig7tw"]
@@ -7569,8 +7569,12 @@ tile_map_data = PackedByteArray("AAD/////AQAUAAIAAAAAAP//AQASAAIAAAABAP//AQASAAI
 tile_set = SubResource("TileSet_kek77")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=2123641215]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
+autostart = true
+
+[node name="MeltdownTimer" type="Timer" parent="." unique_id=2015017185]
+wait_time = 300.0
 
 [node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
 
@@ -7595,7 +7599,6 @@ scale = Vector2(0.23, 0.23)
 
 [node name="MobSpawnTimer" type="Timer" parent="RadWorker" unique_id=2061601783]
 wait_time = 5.0
-autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
 
