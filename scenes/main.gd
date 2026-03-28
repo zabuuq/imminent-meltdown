@@ -32,6 +32,8 @@ func _process(_delta: float) -> void:
 func _on_start_timer_timeout() -> void:
 	$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = ""
 	$HUD.get_node("MessageContainer/VBoxContainer/Message").text = ""
+	$HUD.get_node("TimerMargin").show()
+	$HUD.get_node("LivesMargin").show()
 	$RadWorker/MobSpawnTimer.start()
 	$MeltdownTimer.start()
 	$Player/Player.start_moving()
