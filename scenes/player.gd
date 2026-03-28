@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal update_health(health: float)
 
-const GAME_OVER = preload("res://scenes/game_over.tscn")
 
 var input_direction = Vector2.ZERO
 var speed := 150
@@ -86,12 +85,12 @@ func _is_on_navmesh(nav_map: RID, pos: Vector2) -> bool:
 	return NavigationServer2D.map_get_closest_point(nav_map, pos).distance_to(pos) < 2.0
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	health -= 1
 	update_health.emit(health)
 	
 	if health <= 0:
-		get_tree().change_scene_to_packed(GAME_OVER)
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 		
 	if $HealTimer.is_stopped():
 		$HealTimer.start()
