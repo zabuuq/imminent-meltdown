@@ -28,4 +28,4 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.has_node('DropTimer'):
 			body.get_node('DropTimer').wait_time = randi_range(1, 10)
 			body.get_node('DropTimer').start()
-		queue_free()
+		queue_free.call_deferred()
