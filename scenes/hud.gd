@@ -1,10 +1,8 @@
 extends CanvasLayer
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	var t := ceili($MeltdownTimer.time_left)
-	$TimerMargin/HBoxContainer/MeltdownDisplay.text = "%02d:%02d" % [t / 60.0, t % 60]
+func set_meltdown_time(t: int) -> void:
+	$TimerMargin/HBoxContainer/MeltdownDisplay.text = "%02d:%02d" % [int(t / 60.0), t % 60]
 
 
 func _on_player_update_health(health: float) -> void:
@@ -19,7 +17,3 @@ func _on_player_update_health(health: float) -> void:
 			child.animation = 'no_life'
 		else:
 			child.animation = 'default'
-
-
-func _on_meltdown_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

@@ -120,13 +120,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Message" type="Label" parent="MessageContainer" unique_id=1974466694]
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageContainer" unique_id=419935427]
 layout_mode = 2
+
+[node name="Message" type="Label" parent="MessageContainer/VBoxContainer" unique_id=1974466694]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 75
+text = "Fix the reactor!"
 
-[node name="MeltdownTimer" type="Timer" parent="." unique_id=502022640]
-wait_time = 300.0
-autostart = true
+[node name="Countdown" type="Label" parent="MessageContainer/VBoxContainer" unique_id=163689310]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 150
 
-[connection signal="timeout" from="MeltdownTimer" to="." method="_on_meltdown_timer_timeout"]

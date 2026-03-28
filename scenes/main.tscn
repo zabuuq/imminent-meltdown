@@ -1,14 +1,16 @@
-[gd_scene format=4 uid="uid://cgb226hqsuv23"]
+[gd_scene format=4]
 
-[ext_resource type="Script" uid="uid://cy0c65nvsgq3r" path="res://scenes/main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://db33bj0y833sr" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://b5xvjfdqriqio" path="res://art/tiles/roguelikeDungeon_transparent.png" id="3_272bh"]
-[ext_resource type="PackedScene" uid="uid://cvqvw7ypmtpn2" path="res://scenes/hud.tscn" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="4_4c57u"]
-[ext_resource type="Texture2D" uid="uid://fskh3uuckphl" path="res://art/tiles/imment-meltdown-tilemap.png" id="4_85g3d"]
-[ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://dffdpnvyccn08" path="res://art/Particles/smoke_particle.png" id="7_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="8_tipki"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" path="res://art/tiles/roguelikeDungeon_transparent.png" id="3_272bh"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" path="res://art/tiles/tilemap.png" id="4_4c57u"]
+[ext_resource type="Texture2D" path="res://art/tiles/imment-meltdown-tilemap.png" id="4_85g3d"]
+[ext_resource type="AudioStream" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="6_snrbf"]
+[ext_resource type="Texture2D" path="res://art/Particles/smoke_particle.png" id="7_o6xl0"]
+[ext_resource type="Texture2D" path="res://art/Particles/spark_particle2.png" id="8_tipki"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="9_uqrxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")
@@ -7569,10 +7571,12 @@ tile_map_data = PackedByteArray("AAD/////AQAUAAIAAAAAAP//AQASAAIAAAABAP//AQASAAI
 tile_set = SubResource("TileSet_kek77")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=2123641215]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
+autostart = true
 
-[node name="HUD" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=714225299 instance=ExtResource("4_1bvp3")]
+script = ExtResource("6_snrbf")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=188113294]
 stream = ExtResource("4_lquwl")
@@ -7581,7 +7585,11 @@ parameters/looping = true
 
 [node name="Player" type="Node2D" parent="." unique_id=332799602]
 
-[node name="Player" parent="Player" unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
+[node name="Player" type="CharacterBody2D" parent="Player" unique_id=1618940360 groups=["Player", "player"] instance=ExtResource("1_ig7tw")]
+scale = Vector2(0.23, 0.23)
+collision_mask = 28
+motion_mode = 1
+script = ExtResource("9_uqrxx")
 
 [node name="StartPosition" type="Marker2D" parent="Player" unique_id=413662143]
 position = Vector2(808, 520)
@@ -7595,7 +7603,6 @@ scale = Vector2(0.23, 0.23)
 
 [node name="MobSpawnTimer" type="Timer" parent="RadWorker" unique_id=2061601783]
 wait_time = 5.0
-autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
 
@@ -7623,6 +7630,9 @@ process_material = SubResource("ParticleProcessMaterial_85g3d")
 position = Vector2(809, 408)
 texture = ExtResource("8_tipki")
 process_material = SubResource("ParticleProcessMaterial_o6xl0")
+
+[node name="MeltdownTimer" type="Timer" parent="." unique_id=2015017185]
+wait_time = 300.0
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="update_health" from="Player/Player" to="HUD" method="_on_player_update_health"]
