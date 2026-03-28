@@ -22,10 +22,17 @@ func _on_cool_down_timeout() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if can_pick_up and body.has_node('Holding') and body.get_node('Holding').get_child_count() == 0:
-		var conduit = OBJECT.instantiate()
-		conduit.position = Vector2.ZERO
-		body.get_node('Holding').add_child(conduit)
-		if body.has_node('DropTimer'):
-			body.get_node('DropTimer').wait_time = randi_range(1, 10)
-			body.get_node('DropTimer').start()
-		queue_free.call_deferred()
+		call_deferred("_pick_up", body)
+
+
+func _pick_up(body: Node2D) -> void:
+	var conduit = OBJECT.instantiate()
+
+	conduit.position = Vector2.ZERO
+	body.get_node('Holding').add_child(conduit)
+
+	if body.has_node('DropTimer'):
+		body.get_node('DropTimer').wait_time = randi_range(1, 10)
+		body.get_node('DropTimer').start()
+
+	queue_free()

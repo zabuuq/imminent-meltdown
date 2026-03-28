@@ -90,7 +90,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	update_health.emit(health)
 	
 	if health <= 0:
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")
 		
 	if $HealTimer.is_stopped():
 		$HealTimer.start()
