@@ -60,12 +60,11 @@ theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 24
 text = "Time to meltdown: "
 
-[node name="ScoreLabel" type="Label" parent="TimerMargin/HBoxContainer" unique_id=178685722]
+[node name="MeltdownDisplay" type="Label" parent="TimerMargin/HBoxContainer" unique_id=178685722]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 36
-text = "0"
 
 [node name="LivesMargin" type="MarginContainer" parent="." unique_id=137796289]
 anchors_preset = 1
@@ -128,3 +127,6 @@ theme_override_font_sizes/font_size = 75
 
 [node name="MeltdownTimer" type="Timer" parent="." unique_id=502022640]
 wait_time = 300.0
+autostart = true
+
+[connection signal="timeout" from="MeltdownTimer" to="." method="_on_meltdown_timer_timeout"]
