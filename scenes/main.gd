@@ -59,6 +59,7 @@ func break_tile() -> void:
 				damage_indicator.cell = cell
 				damage_indicator.conduits_layer = conduits
 				damage_indicator.hud = $HUD
+				damage_indicator.meltdown_timer = $MeltdownTimer
 				conduits.set_cell(cell, conduits.get_cell_source_id(cell), ConduitMap.get_broken(atlas_coord))
 				$Objects.add_child(damage_indicator)
 				damage_indicator.global_position = conduits.to_global(conduits.map_to_local(cell))
