@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="1_2km5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2km5q"]
-size = Vector2(16, 4)
+size = Vector2(20, 8)
 
 [node name="Conduit" type="Area2D" unique_id=134254830]
 collision_layer = 8
@@ -12,13 +12,11 @@ collision_mask = 3
 script = ExtResource("1_1uxo5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2138148737]
-position = Vector2(0, 6)
 texture = ExtResource("1_2km5q")
 region_enabled = true
 region_rect = Rect2(391, 346, 16, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=899840261]
-position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_2km5q")
 
 [node name="CoolDown" type="Timer" parent="." unique_id=1451555010]
