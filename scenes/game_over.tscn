@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcgttp03luyk8"]
 
-[ext_resource type="Script" uid="uid://b444qqcd2oyc0" path="res://scenes/start_game.gd" id="1_wqhvx"]
+[ext_resource type="Script" uid="uid://cevl8nucddiq1" path="res://scenes/game_over.gd" id="1_tbwuq"]
 [ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://fonts/Xolonium-Regular.ttf" id="1_xeevv"]
 [ext_resource type="AudioStream" uid="uid://td2mgko63p61" path="res://audio/gameover.wav" id="3_tbwuq"]
 
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wqhvx")
+script = ExtResource("1_tbwuq")
 
 [node name="BackgroundColor" type="ColorRect" parent="." unique_id=1992180673]
 layout_mode = 1
