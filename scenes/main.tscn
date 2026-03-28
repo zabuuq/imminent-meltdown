@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dffdpnvyccn08" path="res://art/Particles/smoke_particle.png" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://b71y4fqwe22vv" path="res://art/Particles/lightning_particle.png" id="10_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")
@@ -7541,6 +7542,72 @@ scale_max = 0.5
 scale_curve = SubResource("CurveTexture_choun")
 color = Color(0.26666668, 1, 0, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ya4ey"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 25.0
+emission_ring_radius = 25.0
+emission_ring_inner_radius = 15.0
+emission_ring_cone_angle = 90.0
+angle_min = -55.09999
+angle_max = -47.19999
+direction = Vector3(0, 0, 0)
+angular_velocity_min = 39.339985
+angular_velocity_max = 283.27997
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.099999994
+scale_max = 0.25
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eb6dy"]
+load_path = "res://.godot/imported/smoke_particle.png-f2f207de05ca8996a022b965e1539905.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_trceg"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 15.0
+emission_ring_radius = 15.0
+emission_ring_inner_radius = 15.0
+emission_ring_cone_angle = 90.0
+angle_min = -55.09999
+angle_max = -47.19999
+direction = Vector3(0, 0, 0)
+angular_velocity_min = 39.339985
+angular_velocity_max = 283.27997
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.099999994
+scale_max = 0.25
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8y0u"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 25, 25)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 0.4392157, 0.7058824)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jkv2x"]
+load_path = "res://.godot/imported/lightning_particle.png-a8b52e864783324d640de9d71f491134.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jbj1t"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(15, 15, 15)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 0.4392157, 0.7058824)
+
 [node name="Main" type="Node" unique_id=1879869702]
 script = ExtResource("1_0xm2m")
 
@@ -7616,22 +7683,22 @@ wait_time = 5.0
 
 [node name="Particle Effects" type="Node2D" parent="." unique_id=1553616152]
 
-[node name="SG1-Steam Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=470529909]
+[node name="SG 1-Steam Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=470529909]
 position = Vector2(640, 384)
 texture = ExtResource("7_o6xl0")
 process_material = SubResource("ParticleProcessMaterial_tipki")
 
-[node name="SG2-Steam Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=16969842]
+[node name="SG 2-Steam Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=16969842]
 position = Vector2(975, 384)
 texture = ExtResource("7_o6xl0")
 process_material = SubResource("ParticleProcessMaterial_tipki")
 
-[node name="SG1-Bubble Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=714960001]
+[node name="SG 1-Bubble Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=714960001]
 position = Vector2(640, 431)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_85g3d")
 
-[node name="SG2-Bubble Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=1536168298]
+[node name="SG 2-Bubble Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=1536168298]
 position = Vector2(976, 432)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_85g3d")
@@ -7640,6 +7707,54 @@ process_material = SubResource("ParticleProcessMaterial_85g3d")
 position = Vector2(809, 408)
 texture = ExtResource("8_tipki")
 process_material = SubResource("ParticleProcessMaterial_o6xl0")
+
+[node name="Turbine 1A-Spinning Steam" type="GPUParticles2D" parent="Particle Effects" unique_id=1328072053]
+position = Vector2(632, 200)
+texture = ExtResource("7_o6xl0")
+process_material = SubResource("ParticleProcessMaterial_ya4ey")
+
+[node name="Turbine 1B-Spinning Steam" type="GPUParticles2D" parent="Particle Effects" unique_id=834927801]
+position = Vector2(728, 152)
+texture = SubResource("CompressedTexture2D_eb6dy")
+process_material = SubResource("ParticleProcessMaterial_trceg")
+
+[node name="Turbine 2B-Spinning Steam" type="GPUParticles2D" parent="Particle Effects" unique_id=719071678]
+position = Vector2(888, 152)
+texture = SubResource("CompressedTexture2D_eb6dy")
+process_material = SubResource("ParticleProcessMaterial_trceg")
+
+[node name="Turbine 2A-Spinning Steam2" type="GPUParticles2D" parent="Particle Effects" unique_id=1355520575]
+position = Vector2(984, 200)
+texture = ExtResource("7_o6xl0")
+process_material = SubResource("ParticleProcessMaterial_ya4ey")
+
+[node name="Turbine 1A - Electricity" type="GPUParticles2D" parent="Particle Effects" unique_id=1304165012]
+position = Vector2(632, 201)
+amount = 4
+amount_ratio = 0.5
+texture = ExtResource("10_choun")
+process_material = SubResource("ParticleProcessMaterial_a8y0u")
+
+[node name="Turbine 1B - Electricity" type="GPUParticles2D" parent="Particle Effects" unique_id=355898245]
+position = Vector2(728, 152)
+amount = 2
+amount_ratio = 0.5
+texture = SubResource("CompressedTexture2D_jkv2x")
+process_material = SubResource("ParticleProcessMaterial_jbj1t")
+
+[node name="Turbine 2B - Electricity" type="GPUParticles2D" parent="Particle Effects" unique_id=1453208471]
+position = Vector2(888, 151)
+amount = 2
+amount_ratio = 0.5
+texture = SubResource("CompressedTexture2D_jkv2x")
+process_material = SubResource("ParticleProcessMaterial_jbj1t")
+
+[node name="Turbine 2A - Electricity" type="GPUParticles2D" parent="Particle Effects" unique_id=386652134]
+position = Vector2(984, 200)
+amount = 4
+amount_ratio = 0.5
+texture = ExtResource("10_choun")
+process_material = SubResource("ParticleProcessMaterial_a8y0u")
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="update_health" from="Player/Player" to="HUD" method="_on_player_update_health"]
