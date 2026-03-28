@@ -14,7 +14,6 @@ script = ExtResource("1_1uxo5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2138148737]
 position = Vector2(0, 6)
 texture = ExtResource("1_2km5q")
-centered = false
 region_enabled = true
 region_rect = Rect2(391, 346, 16, 4)
 

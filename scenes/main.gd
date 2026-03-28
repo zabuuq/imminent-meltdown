@@ -3,7 +3,6 @@ extends Node
 const CONDUIT_SCENE = preload('res://scenes/conduit.tscn')
 const DAMAGE_SCENE = preload('res://scenes/damage_indicator.tscn')
 const RAD_WORKER_SCENE = preload('res://scenes/radioactive_worker.tscn')
-const MAX_ATTEMPTS = 500
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,26 +34,15 @@ func _process(_delta: float) -> void:
 
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
 	var floor_layer := $Map/Floor as TileMapLayer
-	var tile_size: Vector2i = floor_layer.tile_set.tile_size
+	var nav_map := floor_layer.get_world_2d().navigation_map
 
-	var min_tile := Vector2i(0, 0)
-	var max_tile := Vector2i(99, 49)
+	var floor_tiles := floor_layer.get_used_cells()
+	floor_tiles.shuffle()
 
-	var placed := 0
-	var attempts := 0
-
-	while placed < count and attempts < MAX_ATTEMPTS:
-		attempts += 1
-		var tile := Vector2i(
-			randi_range(min_tile.x, max_tile.x),
-			randi_range(min_tile.y, max_tile.y)
-		)
-
-		if floor_layer.get_cell_source_id(tile) != -1:
-			var object := object_scene.instantiate()
-			$Objects.add_child(object)
-			object.global_position = floor_layer.to_global(Vector2(tile * tile_size))
-			placed += 1
+	for cell in floor_tiles.slice(0, count):
+		var object := object_scene.instantiate()
+		$Objects.add_child(object)
+		object.global_position = floor_layer.to_global(floor_layer.map_to_local(cell))
 
 
 func break_tile() -> void:
@@ -68,6 +56,9 @@ func break_tile() -> void:
 			var atlas_coord := conduits.get_cell_atlas_coords(cell)
 			if ConduitMap.is_fixed_conduit(atlas_coord):
 				var damage_indicator = DAMAGE_SCENE.instantiate()
+				damage_indicator.cell = cell
+				damage_indicator.conduits_layer = conduits
+				damage_indicator.hud = $HUD
 				conduits.set_cell(cell, conduits.get_cell_source_id(cell), ConduitMap.get_broken(atlas_coord))
 				$Objects.add_child(damage_indicator)
 				damage_indicator.global_position = conduits.to_global(conduits.map_to_local(cell))
