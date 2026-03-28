@@ -86,7 +86,7 @@ func _is_on_navmesh(nav_map: RID, pos: Vector2) -> bool:
 	return NavigationServer2D.map_get_closest_point(nav_map, pos).distance_to(pos) < 2.0
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	health -= 1
 	update_health.emit(health)
 	
