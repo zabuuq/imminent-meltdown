@@ -8,7 +8,11 @@ const MAX_ATTEMPTS = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# set up the map objects and initial breaks
 	spawn_objects(CONDUIT_SCENE, 25)
+	for i in 5:
+		break_tile()
+
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
 
 
