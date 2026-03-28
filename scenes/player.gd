@@ -4,7 +4,7 @@ signal update_health(health: float)
 
 
 var input_direction = Vector2.ZERO
-var speed := 75
+var speed := 100
 var health := 5.0
 var can_move := false
 
