@@ -3,7 +3,8 @@ extends CanvasLayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$TimerMargin/HBoxContainer/MeltdownDisplay.text = str(ceili($MeltdownTimer.time_left))
+	var t := ceili($MeltdownTimer.time_left)
+	$TimerMargin/HBoxContainer/MeltdownDisplay.text = "%02d:%02d" % [t / 60, t % 60]
 
 
 func _on_player_update_health(health: float) -> void:
