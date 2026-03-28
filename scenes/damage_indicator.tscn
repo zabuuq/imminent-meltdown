@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4lb344ga6giq"]
+
+[ext_resource type="Script" uid="uid://d2hwaug6ou17y" path="res://scenes/damage_indicator.gd" id="1_2sglj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p07i"]
+size = Vector2(16, 16)
+
+[node name="DamageIndicator" type="Area2D" unique_id=1336189838]
+collision_layer = 16
+script = ExtResource("1_2sglj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=183172551]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.61960787, 0, 0, 0.49803922)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=111248912]
+shape = SubResource("RectangleShape2D_5p07i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

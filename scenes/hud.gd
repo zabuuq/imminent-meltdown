@@ -1,5 +1,17 @@
 extends CanvasLayer
 
+var damages := 0
+
+
+func add_damage() -> void:
+	damages += 1
+	$DamagesMargin/HBoxContainer/DamagesLabel.text = str(damages)
+
+
+func remove_damage() -> void:
+	damages -= 1
+	$DamagesMargin/HBoxContainer/DamagesLabel.text = str(damages)
+
 
 func set_meltdown_time(t: int) -> void:
 	$TimerMargin/HBoxContainer/MeltdownDisplay.text = "%02d:%02d" % [int(t / 60.0), t % 60]

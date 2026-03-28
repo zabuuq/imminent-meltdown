@@ -1,6 +1,7 @@
 extends Node
 
 const CONDUIT_SCENE = preload('res://scenes/conduit.tscn')
+const DAMAGE_SCENE = preload('res://scenes/damage_indicator.tscn')
 const RAD_WORKER_SCENE = preload('res://scenes/radioactive_worker.tscn')
 const MAX_ATTEMPTS = 500
 
@@ -29,20 +30,6 @@ func _process(_delta: float) -> void:
 		$HUD.set_meltdown_time(ceili($MeltdownTimer.time_left))
 
 
-func _on_start_timer_timeout() -> void:
-	$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = ""
-	$HUD.get_node("MessageContainer/VBoxContainer/Message").text = ""
-	$HUD.get_node("TimerMargin").show()
-	$HUD.get_node("LivesMargin").show()
-	$RadWorker/MobSpawnTimer.start()
-	$MeltdownTimer.start()
-	$Player/Player.start_moving()
-
-
-func _on_meltdown_timer_timeout() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")
-
-
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
 	var floor_layer := $Map/Floor as TileMapLayer
 	var tile_size: Vector2i = floor_layer.tile_set.tile_size
@@ -67,6 +54,43 @@ func spawn_objects(object_scene: PackedScene, count: int) -> void:
 			placed += 1
 
 
+func break_tile() -> void:
+	var conduits := $Map/Conduits as TileMapLayer
+	var cells := conduits.get_used_cells()
+	cells.shuffle()
+
+	for cell in cells:
+		var tile_data := conduits.get_cell_tile_data(cell)
+		if tile_data and tile_data.get_custom_data("is_breakable"):
+			var atlas_coord := conduits.get_cell_atlas_coords(cell)
+			if ConduitMap.is_fixed_conduit(atlas_coord):
+				var damage_indicator = DAMAGE_SCENE.instantiate()
+				conduits.set_cell(cell, conduits.get_cell_source_id(cell), ConduitMap.get_broken(atlas_coord))
+				$Objects.add_child(damage_indicator)
+				damage_indicator.global_position = conduits.to_global(conduits.map_to_local(cell))
+				$HUD.add_damage()
+				return
+
+
+func _on_start_timer_timeout() -> void:
+	$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = ""
+	$HUD.get_node("MessageContainer/VBoxContainer/Message").text = ""
+	$HUD.get_node("DamagesMargin").show()
+	$HUD.get_node("TimerMargin").show()
+	$HUD.get_node("LivesMargin").show()
+	$MeltdownTimer.start()
+	$DamageTimer.start()
+	$RadWorker/MobSpawnTimer.start()
+	$Player/Player.start_moving()
+
+
+func _on_damage_timer_timeout() -> void:
+	# Set the next spawn time between 30 and 60 seconds
+	$DamageTimer.wait_time = randi_range(30, 60)
+
+	break_tile()
+
+
 func _on_mob_spawn_timer_timeout() -> void:
 	# Set the next spawn time between 1 and 10 seconds
 	$RadWorker/MobSpawnTimer.wait_time = randi_range(1, 10)
@@ -74,3 +98,7 @@ func _on_mob_spawn_timer_timeout() -> void:
 	var rad_worker := RAD_WORKER_SCENE.instantiate()
 	rad_worker.position = $RadWorker/StartPosition.position
 	$RadWorker.add_child(rad_worker)
+
+
+func _on_meltdown_timer_timeout() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")

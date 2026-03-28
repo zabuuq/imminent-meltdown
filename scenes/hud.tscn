@@ -67,6 +67,26 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 36
 
+[node name="DamagesMargin" type="MarginContainer" parent="." unique_id=36530249]
+visible = false
+custom_minimum_size = Vector2(0, 58)
+offset_right = 163.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DamagesMargin" unique_id=685426570]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DamagesMargin/HBoxContainer" unique_id=1566483564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Damages Remaining: "
+
+[node name="DamagesLabel" type="Label" parent="DamagesMargin/HBoxContainer" unique_id=168257962]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
 [node name="LivesMargin" type="MarginContainer" parent="." unique_id=137796289]
 visible = false
 anchors_preset = 1
