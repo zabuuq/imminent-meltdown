@@ -8,7 +8,6 @@ const MAX_ATTEMPTS = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Player/Player.position = $Player/StartPosition.position
 	spawn_objects(CONDUIT_SCENE, 25)
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
 
