@@ -14,8 +14,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
-		#if position.distance_to(player.global_position) < 80 and position.distance_to(player.global_position) > 8:
-			#$NavigationAgent2D.target_position = player.global_position
+		if position.distance_to(player.global_position) < 80 and position.distance_to(player.global_position) > 8:
+			$NavigationAgent2D.target_position = player.global_position
 
 		if !$NavigationAgent2D.is_navigation_finished():
 			var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
