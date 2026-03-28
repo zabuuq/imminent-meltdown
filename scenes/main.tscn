@@ -7599,27 +7599,29 @@ autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
 
-[node name="SG1-Steam Effect" type="GPUParticles2D" parent="." unique_id=470529909]
+[node name="Particle Effects" type="Node2D" parent="." unique_id=1553616152]
+
+[node name="SG1-Steam Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=470529909]
 position = Vector2(640, 384)
 texture = ExtResource("7_o6xl0")
 process_material = SubResource("ParticleProcessMaterial_tipki")
 
-[node name="SG2-Steam Effect" type="GPUParticles2D" parent="." unique_id=16969842]
+[node name="SG2-Steam Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=16969842]
 position = Vector2(975, 384)
 texture = ExtResource("7_o6xl0")
 process_material = SubResource("ParticleProcessMaterial_tipki")
 
-[node name="SG1-Bubble Effect" type="GPUParticles2D" parent="." unique_id=714960001]
+[node name="SG1-Bubble Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=714960001]
 position = Vector2(640, 431)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_85g3d")
 
-[node name="SG2-Bubble Effect" type="GPUParticles2D" parent="." unique_id=1536168298]
+[node name="SG2-Bubble Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=1536168298]
 position = Vector2(976, 432)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_85g3d")
 
-[node name="RX-Radiation Effect" type="GPUParticles2D" parent="." unique_id=1110107869]
+[node name="RX-Radiation Effect" type="GPUParticles2D" parent="Particle Effects" unique_id=1110107869]
 position = Vector2(809, 408)
 texture = ExtResource("8_tipki")
 process_material = SubResource("ParticleProcessMaterial_o6xl0")
