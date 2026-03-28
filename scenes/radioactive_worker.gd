@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed := 75
+var speed := 45
 var goal: Node
 var can_move := false
 @onready var player = get_tree().get_first_node_in_group('Player')

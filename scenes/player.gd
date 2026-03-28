@@ -4,7 +4,7 @@ signal update_health(health: float)
 
 
 var input_direction = Vector2.ZERO
-var speed := 150
+var speed := 75
 var health := 5.0
 var can_move := false
 
@@ -48,7 +48,7 @@ func handle_collisions():
 		var collider = collision.get_collider()
 		
 		if collider is TileMapLayer and collider.get_parent().name == 'Map':
-			#velocity = velocity.bounce(collision.get_normal())
+			velocity = velocity.bounce(collision.get_normal())
 			pass
 
 
