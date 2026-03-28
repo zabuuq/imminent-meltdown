@@ -21,11 +21,16 @@ func _on_cool_down_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if can_pick_up and body.has_node('Holding') and body.get_node('Holding').get_child_count() == 0:
+	if can_pick_up and body.has_node('Holding'):
+		can_pick_up = false
 		call_deferred("_pick_up", body)
 
 
 func _pick_up(body: Node2D) -> void:
+	if not is_inside_tree():
+		return
+	if body.get_node('Holding').get_child_count() > 0:
+		return
 	var conduit = OBJECT.instantiate()
 
 	conduit.position = Vector2.ZERO
