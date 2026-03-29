@@ -7946,6 +7946,8 @@ stream = ExtResource("15_jkv2x")
 volume_db = -5.0
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="MeltdownTimer" to="." method="_on_meltdown_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="game_won" from="HUD" to="." method="_on_game_won"]
 [connection signal="update_health" from="Player/Player" to="HUD" method="_on_player_update_health"]
 [connection signal="timeout" from="RadWorker/MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

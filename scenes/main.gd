@@ -12,8 +12,6 @@ func _ready() -> void:
 	for i in 5 + WinGame.level:
 		break_tile()
 
-	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
-	$HUD.game_won.connect(_on_game_won)
 	$Player/Player.hud = $HUD
 	$HUD.set_previous_score(WinGame.cumulative_score)
 	$"Reactor/RXHeat".self_modulate.a = 0.5

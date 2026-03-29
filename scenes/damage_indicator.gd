@@ -8,10 +8,6 @@ var on_fixed: Callable
 var cooldown_done_sound: AudioStreamPlayer
 
 
-func _ready() -> void:
-	$FixTimer.timeout.connect(_on_fix_timer_timeout)
-
-
 func _process(_delta: float) -> void:
 	if not $FixTimer.is_stopped():
 		$MarginContainer/Label.text = str(ceili($FixTimer.time_left))
