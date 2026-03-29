@@ -30,6 +30,7 @@ func _pick_up(body: Node2D) -> void:
 	if not is_inside_tree():
 		return
 	if body.get_node('Holding').get_child_count() > 0:
+		can_pick_up = true
 		return
 	var conduit = OBJECT.instantiate()
 
