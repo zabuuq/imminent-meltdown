@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dd0scqvhwsfa"
+path="res://.godot/imported/Steam Gen (bbc_industry--_07054022-Hydroelectric Generator).mp3-9eb0541938727eb07ff360bc9a33524a.mp3str"
+
+[deps]
+
+source_file="res://audio/Steam Gen (bbc_industry--_07054022-Hydroelectric Generator).mp3"
+dest_files=["res://.godot/imported/Steam Gen (bbc_industry--_07054022-Hydroelectric Generator).mp3-9eb0541938727eb07ff360bc9a33524a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

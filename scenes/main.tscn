@@ -11,9 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://dlow5mve7l375" path="res://audio/Main.mp3" id="9_choun"]
 [ext_resource type="Texture2D" uid="uid://b71y4fqwe22vv" path="res://art/Particles/lightning_particle.png" id="10_choun"]
 [ext_resource type="AudioStream" uid="uid://15by63m1hwto" path="res://audio/Start.mp3" id="11_ya4ey"]
-[ext_resource type="AudioStream" uid="uid://c150m2rmwa6mi" path="res://audio/Reactor (Refrigerator Hum).mp3" id="12_a8y0u"]
-[ext_resource type="AudioStream" uid="uid://dgcf7hf7lqpkt" path="res://audio/Steam Gen (Hydroelectric Generator).mp3" id="13_jkv2x"]
-[ext_resource type="AudioStream" uid="uid://bjrleh6n7o4w2" path="res://audio/Turbine Gen (FH Allen steam generator).mp3" id="14_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://b2i76sw01wtpw" path="res://audio/Reactor (bbc_household-_07027236-Refrigerator Hum).mp3" id="12_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://dd0scqvhwsfa" path="res://audio/Steam Gen (bbc_industry--_07054022-Hydroelectric Generator).mp3" id="13_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://4ngqkwqvvkhc" path="res://audio/Turbine Gen (bbc_engines--s_07072107-FH Allen steam generator).mp3" id="14_jbj1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")

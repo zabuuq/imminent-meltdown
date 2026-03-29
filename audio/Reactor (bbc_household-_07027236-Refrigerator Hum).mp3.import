@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2i76sw01wtpw"
+path="res://.godot/imported/Reactor (bbc_household-_07027236-Refrigerator Hum).mp3-2d99c62034e272597c31bbf62dc5c9c3.mp3str"
+
+[deps]
+
+source_file="res://audio/Reactor (bbc_household-_07027236-Refrigerator Hum).mp3"
+dest_files=["res://.godot/imported/Reactor (bbc_household-_07027236-Refrigerator Hum).mp3-2d99c62034e272597c31bbf62dc5c9c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

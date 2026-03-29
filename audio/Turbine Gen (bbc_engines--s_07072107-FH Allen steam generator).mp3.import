@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4ngqkwqvvkhc"
+path="res://.godot/imported/Turbine Gen (bbc_engines--s_07072107-FH Allen steam generator).mp3-b70ac001931cd05d832af09d83d0202e.mp3str"
+
+[deps]
+
+source_file="res://audio/Turbine Gen (bbc_engines--s_07072107-FH Allen steam generator).mp3"
+dest_files=["res://.godot/imported/Turbine Gen (bbc_engines--s_07072107-FH Allen steam generator).mp3-b70ac001931cd05d832af09d83d0202e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
