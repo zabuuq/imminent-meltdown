@@ -90,7 +90,6 @@ func _on_drop_timer_timeout() -> void:
 		return
 	var item = holding.get_child(0)
 	holding.remove_child(item)
-	get_parent().add_child(item)
 
 	var drop_dir := -velocity.normalized() if velocity != Vector2.ZERO else Vector2(0, 1)
 	var drop_pos := global_position + drop_dir * 8
@@ -109,16 +108,17 @@ func _on_drop_timer_timeout() -> void:
 		var tile_step := Vector2(16.0 * sign(drop_dir.x), 0) if abs(drop_dir.x) >= abs(drop_dir.y) \
 			else Vector2(0, 16.0 * sign(drop_dir.y))
 		var candidate := drop_pos + tile_step
-		if _is_on_navmesh(nav_map, candidate + Vector2(8, 8)):
+		if _is_on_navmesh(nav_map, candidate):
 			drop_pos = candidate
 
+	get_parent().add_child(item)
 	item.global_position = drop_pos
 	if item.has_method('drop'):
 		item.drop()
 
 
 func snap_to_tile_center(pos: Vector2) -> Vector2:
-	return (pos / 16.0).floor() * 16.0
+	return (pos / 16.0).floor() * 16.0 + Vector2(8.0, 8.0)
 
 
 func _is_on_navmesh(nav_map: RID, pos: Vector2) -> bool:
