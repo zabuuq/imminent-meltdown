@@ -5,6 +5,13 @@ signal game_won(items_fixed: int)
 var damages := 0
 var cooldowns := 0
 var items_fixed := 0
+var previous_score := 0
+
+
+func set_previous_score(prev: int) -> void:
+	previous_score = prev
+	if previous_score > 0:
+		$ScoreContainer/HBoxContainer/ScoreLabel.text = str(previous_score)
 
 
 func add_damage() -> void:
@@ -23,7 +30,7 @@ func add_cooldown() -> void:
 	cooldowns += 1
 	items_fixed += 1
 	$DamagesContainer/VBoxContainer/HBoxContainer2/CooldownLabel.text = str(cooldowns)
-	$ScoreContainer/HBoxContainer/ScoreLabel.text = str(items_fixed)
+	$ScoreContainer/HBoxContainer/ScoreLabel.text = str(previous_score + items_fixed)
 
 
 func remove_cooldown() -> void:
