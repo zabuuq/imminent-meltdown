@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qkr447kwhacb" path="res://scenes/conduit.gd" id="1_1uxo5"]
 [ext_resource type="Texture2D" uid="uid://qm6o0swuhony" path="res://art/tiles/tilemap.png" id="1_2km5q"]
+[ext_resource type="AudioStream" uid="uid://pserj1y4ldua" path="res://audio/freesound_community-wrench-drop-2-40609-edited.mp3" id="3_dgjw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2km5q"]
 size = Vector2(20, 8)
@@ -23,6 +24,9 @@ shape = SubResource("RectangleShape2D_2km5q")
 wait_time = 0.5
 
 [node name="DropSound" type="AudioStreamPlayer2D" parent="." unique_id=1856023554]
+stream = ExtResource("3_dgjw6")
+volume_db = 10.0
+max_distance = 250.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]

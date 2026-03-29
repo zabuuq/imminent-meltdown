@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://b2i76sw01wtpw" path="res://audio/Reactor (bbc_household-_07027236-Refrigerator Hum).mp3" id="12_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://dd0scqvhwsfa" path="res://audio/Steam Gen (bbc_industry--_07054022-Hydroelectric Generator).mp3" id="13_jkv2x"]
 [ext_resource type="AudioStream" uid="uid://4ngqkwqvvkhc" path="res://audio/Turbine Gen (bbc_engines--s_07072107-FH Allen steam generator).mp3" id="14_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://cugpxjxanf4mu" path="res://audio/dragon-studio-steam-hissing-2-386162.mp3" id="15_jkv2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")
@@ -7940,7 +7941,13 @@ volume_db = -20.0
 autoplay = true
 max_distance = 250.0
 
+[node name="CooldownDoneSound" type="AudioStreamPlayer" parent="Ambient Sounds" unique_id=996019172]
+stream = ExtResource("15_jkv2x")
+volume_db = -5.0
+
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="MeltdownTimer" to="." method="_on_meltdown_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="game_won" from="HUD" to="." method="_on_game_won"]
 [connection signal="update_health" from="Player/Player" to="HUD" method="_on_player_update_health"]
 [connection signal="timeout" from="RadWorker/MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

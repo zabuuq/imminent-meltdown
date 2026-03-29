@@ -12,8 +12,6 @@ func _ready() -> void:
 	for i in 5 + WinGame.level:
 		break_tile()
 
-	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
-	$HUD.game_won.connect(_on_game_won)
 	$Player/Player.hud = $HUD
 	$HUD.set_previous_score(WinGame.cumulative_score)
 	$"Reactor/RXHeat".self_modulate.a = 0.5
@@ -86,6 +84,7 @@ func break_tile() -> void:
 				damage_indicator.hud = $HUD
 				damage_indicator.meltdown_timer = $MeltdownTimer
 				damage_indicator.on_fixed = spawn_objects.bind(CONDUIT_SCENE, 1)
+				damage_indicator.cooldown_done_sound = $"Ambient Sounds/CooldownDoneSound"
 				conduits.set_cell(cell, conduits.get_cell_source_id(cell), ConduitMap.get_broken(atlas_coord))
 				$Objects.add_child(damage_indicator)
 				damage_indicator.global_position = conduits.to_global(conduits.map_to_local(cell))

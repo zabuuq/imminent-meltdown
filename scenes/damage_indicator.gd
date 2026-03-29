@@ -5,10 +5,7 @@ var conduits_layer: TileMapLayer
 var hud: Node
 var meltdown_timer: Timer
 var on_fixed: Callable
-
-
-func _ready() -> void:
-	$FixTimer.timeout.connect(_on_fix_timer_timeout)
+var cooldown_done_sound: AudioStreamPlayer
 
 
 func _process(_delta: float) -> void:
@@ -52,4 +49,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_fix_timer_timeout() -> void:
 	hud.remove_cooldown()
+	cooldown_done_sound.play()
 	queue_free()
