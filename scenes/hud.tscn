@@ -39,69 +39,71 @@ animations = [{
 [node name="HUD" type="CanvasLayer" unique_id=714225299]
 script = ExtResource("1_64ctp")
 
-[node name="TimerMargin" type="MarginContainer" parent="." unique_id=270866557]
+[node name="TimerContainer" type="MarginContainer" parent="." unique_id=270866557]
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 58.0
 grow_horizontal = 2
 
-[node name="ColorRect" type="ColorRect" parent="TimerMargin" unique_id=543529936]
+[node name="ColorRect" type="ColorRect" parent="TimerContainer" unique_id=543529936]
 layout_mode = 2
 color = Color(0, 0, 0, 0.49803922)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TimerMargin" unique_id=1753191989]
+[node name="HBoxContainer" type="HBoxContainer" parent="TimerContainer" unique_id=1753191989]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="TimerMargin/HBoxContainer" unique_id=803900667]
+[node name="Label" type="Label" parent="TimerContainer/HBoxContainer" unique_id=803900667]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 24
 text = "Time to meltdown: "
 
-[node name="MeltdownDisplay" type="Label" parent="TimerMargin/HBoxContainer" unique_id=178685722]
+[node name="MeltdownDisplay" type="Label" parent="TimerContainer/HBoxContainer" unique_id=178685722]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 36
 
-[node name="DamagesMargin" type="MarginContainer" parent="." unique_id=36530249]
+[node name="DamagesContainer" type="MarginContainer" parent="." unique_id=36530249]
+visible = false
 custom_minimum_size = Vector2(0, 58)
 offset_right = 163.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DamagesMargin" unique_id=1861655107]
+[node name="VBoxContainer" type="VBoxContainer" parent="DamagesContainer" unique_id=1861655107]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DamagesMargin/VBoxContainer" unique_id=685426570]
+[node name="HBoxContainer" type="HBoxContainer" parent="DamagesContainer/VBoxContainer" unique_id=685426570]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer" unique_id=1566483564]
+[node name="Label" type="Label" parent="DamagesContainer/VBoxContainer/HBoxContainer" unique_id=1566483564]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Damaged Items: "
 
-[node name="DamagesLabel" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer" unique_id=168257962]
+[node name="DamagesLabel" type="Label" parent="DamagesContainer/VBoxContainer/HBoxContainer" unique_id=168257962]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "0"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="DamagesMargin/VBoxContainer" unique_id=359582380]
+[node name="HBoxContainer2" type="HBoxContainer" parent="DamagesContainer/VBoxContainer" unique_id=359582380]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer2" unique_id=1582247836]
+[node name="Label" type="Label" parent="DamagesContainer/VBoxContainer/HBoxContainer2" unique_id=1582247836]
 layout_mode = 2
 text = "Cooling Items: "
 
-[node name="CooldownLabel" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer2" unique_id=1290075023]
+[node name="CooldownLabel" type="Label" parent="DamagesContainer/VBoxContainer/HBoxContainer2" unique_id=1290075023]
 layout_mode = 2
 text = "0"
 
-[node name="LivesMargin" type="MarginContainer" parent="." unique_id=137796289]
+[node name="LivesContainer" type="MarginContainer" parent="." unique_id=137796289]
 visible = false
 anchors_preset = 1
 anchor_left = 1.0
@@ -110,7 +112,7 @@ offset_left = -130.0
 offset_bottom = 64.0
 grow_horizontal = 0
 
-[node name="Life1" type="AnimatedSprite2D" parent="LivesMargin" unique_id=238022946]
+[node name="Life1" type="AnimatedSprite2D" parent="LivesContainer" unique_id=238022946]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_uo2fv")
 animation = &"half_life"
@@ -118,7 +120,7 @@ autoplay = "default"
 centered = false
 offset = Vector2(0, 43)
 
-[node name="Life2" type="AnimatedSprite2D" parent="LivesMargin" unique_id=875962643]
+[node name="Life2" type="AnimatedSprite2D" parent="LivesContainer" unique_id=875962643]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_uo2fv")
 animation = &"no_life"
@@ -126,7 +128,7 @@ autoplay = "default"
 centered = false
 offset = Vector2(60, 43)
 
-[node name="Life3" type="AnimatedSprite2D" parent="LivesMargin" unique_id=10247268]
+[node name="Life3" type="AnimatedSprite2D" parent="LivesContainer" unique_id=10247268]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_uo2fv")
 animation = &"no_life"
@@ -134,7 +136,7 @@ autoplay = "default"
 centered = false
 offset = Vector2(120, 43)
 
-[node name="Life4" type="AnimatedSprite2D" parent="LivesMargin" unique_id=245688676]
+[node name="Life4" type="AnimatedSprite2D" parent="LivesContainer" unique_id=245688676]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_uo2fv")
 animation = &"no_life"
@@ -142,7 +144,7 @@ autoplay = "default"
 centered = false
 offset = Vector2(180, 43)
 
-[node name="Life5" type="AnimatedSprite2D" parent="LivesMargin" unique_id=219233092]
+[node name="Life5" type="AnimatedSprite2D" parent="LivesContainer" unique_id=219233092]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_uo2fv")
 animation = &"no_life"
@@ -172,3 +174,26 @@ text = "Fix the reactor!"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 150
+
+[node name="ScoreContainer" type="MarginContainer" parent="." unique_id=548043395]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 57.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreContainer" unique_id=1781987857]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScoreContainer/HBoxContainer" unique_id=1116940028]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Score: "
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer/HBoxContainer" unique_id=1472546184]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
