@@ -37,7 +37,6 @@ func _process(_delta: float) -> void:
 
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
 	var floor_layer := $Map/Floor as TileMapLayer
-	var nav_map := floor_layer.get_world_2d().navigation_map
 
 	var floor_tiles := floor_layer.get_used_cells()
 	floor_tiles.shuffle()
