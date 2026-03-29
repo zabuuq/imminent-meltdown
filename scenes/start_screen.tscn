@@ -57,7 +57,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_tx5wa")
 theme_override_font_sizes/font_size = 80
-text = "Shut down the reactor!"
+text = "Fix the reactor!"
 horizontal_alignment = 1
 
 [node name="StartContainer" type="MarginContainer" parent="." unique_id=1622563899]
