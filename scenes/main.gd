@@ -14,12 +14,9 @@ func _ready() -> void:
 
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
 	$HUD.game_won.connect(_on_game_won)
-
-#func _process1(_delta: float):
-#	$"Objects/Reactor/Reactor Heat".self.modulate.a = 100
+	$"Reactor/RXHeat".self_modulate.a = 0.5
 
 func _process(_delta: float) -> void:
-	$"Reactor/Reactor/RXHeat".self_modulate.a = 0.5
 	if not $StartTimer.is_stopped():
 		var t: int = ceili($StartTimer.time_left)
 		$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = str(t)
@@ -34,6 +31,10 @@ func _process(_delta: float) -> void:
 			msg.text = "No time to stop!"
 	if not $MeltdownTimer.is_stopped():
 		$HUD.set_meltdown_time(ceili($MeltdownTimer.time_left))
+		var progress = 1.0 - $MeltdownTimer.time_left / $MeltdownTimer.wait_time
+		var pulse_speed = lerp(1.0, 10.0, progress)
+		var alpha := (sin(Time.get_ticks_msec() / 1000.0 * pulse_speed) + 1.0) / 2.0
+		$"Reactor/RXHeat".self_modulate.a = lerp(0.2, 1.0, alpha)
 
 
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
@@ -74,9 +75,10 @@ func break_tile() -> void:
 func _on_start_timer_timeout() -> void:
 	$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = ""
 	$HUD.get_node("MessageContainer/VBoxContainer/Message").text = ""
-	$HUD.get_node("DamagesMargin").show()
-	$HUD.get_node("TimerMargin").show()
-	$HUD.get_node("LivesMargin").show()
+	$HUD.get_node("DamagesContainer").show()
+	$HUD.get_node("TimerContainer").show()
+	$HUD.get_node("LivesContainer").show()
+	$HUD.get_node("ScoreContainer").show()
 	$MeltdownTimer.start()
 	$DamageTimer.start()
 	$RadWorker/MobSpawnTimer.start()
@@ -103,7 +105,11 @@ func _on_mob_spawn_timer_timeout() -> void:
 	$RadWorker.add_child(rad_worker)
 
 
-func _on_game_won() -> void:
+func _on_game_won(items_fixed: int) -> void:
+	var time_left := ceili($MeltdownTimer.time_left)
+	WinGame.items_fixed = items_fixed
+	WinGame.time_left = time_left
+	WinGame.score = items_fixed + time_left
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/win_game.tscn")
 
 
