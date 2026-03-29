@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c74jwf6no2bmr"]
+
+[ext_resource type="Script" uid="uid://bfti13frcb6p8" path="res://scenes/win_game.gd" id="1_ooaim"]
+[ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://fonts/Xolonium-Regular.ttf" id="2_p6hhu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
+font_size = 125
+font_color = Color(0.513617, 0.0005715767, 0.00031313868, 1)
+outline_size = 10
+
+[node name="WinGame" type="Control" unique_id=296842910]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ooaim")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1992180673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+metadata/_edit_lock_ = true
+
+[node name="TitleContainer" type="MarginContainer" parent="." unique_id=761636081]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -506.5
+offset_right = 506.5
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="Title" type="Label" parent="TitleContainer" unique_id=1845025533]
+layout_mode = 2
+text = "Meltdown Imminent"
+label_settings = SubResource("LabelSettings_wqhvx")
+horizontal_alignment = 1
+
+[node name="MessageContainer" type="CenterContainer" parent="." unique_id=1961418835]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="Label" parent="MessageContainer" unique_id=643941914]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_p6hhu")
+theme_override_font_sizes/font_size = 80
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="StartContainer" type="MarginContainer" parent="." unique_id=89549615]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -484.0
+offset_top = -97.0
+offset_right = 484.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Start" type="Label" parent="StartContainer" unique_id=1593766007]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_p6hhu")
+theme_override_font_sizes/font_size = 50
+text = "press space to try again"
+horizontal_alignment = 1

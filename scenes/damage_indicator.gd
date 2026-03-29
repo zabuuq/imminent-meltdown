@@ -27,8 +27,8 @@ func _on_body_entered(body: Node2D) -> void:
 	conduits_layer.set_cell(cell, conduits_layer.get_cell_source_id(cell), ConduitMap.get_fixed(broken_coord))
 
 	holding.get_child(0).queue_free()
-	hud.remove_damage()
 	hud.add_cooldown()
+	hud.remove_damage()
 	meltdown_timer.start(meltdown_timer.time_left + 15.0)
 	on_fixed.call()
 

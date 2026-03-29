@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal game_won
+
 var damages := 0
 var cooldowns := 0
 
@@ -12,6 +14,8 @@ func add_damage() -> void:
 func remove_damage() -> void:
 	damages -= 1
 	$DamagesMargin/VBoxContainer/HBoxContainer/DamagesLabel.text = str(damages)
+	if damages == 0 and cooldowns == 0:
+		game_won.emit()
 
 
 func add_cooldown() -> void:
@@ -22,6 +26,8 @@ func add_cooldown() -> void:
 func remove_cooldown() -> void:
 	cooldowns -= 1
 	$DamagesMargin/VBoxContainer/HBoxContainer2/CooldownLabel.text = str(cooldowns)
+	if damages == 0 and cooldowns == 0:
+		game_won.emit()
 
 
 func set_meltdown_time(t: int) -> void:
