@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 
 func drop() -> void:
 	can_pick_up = false
+	$DropSound.play()
 	$CoolDown.start()
 
 

@@ -22,5 +22,7 @@ shape = SubResource("RectangleShape2D_2km5q")
 [node name="CoolDown" type="Timer" parent="." unique_id=1451555010]
 wait_time = 0.5
 
+[node name="DropSound" type="AudioStreamPlayer2D" parent="." unique_id=1856023554]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
