@@ -2,23 +2,26 @@ extends CharacterBody2D
 
 signal update_health(health: float)
 
+const FOOTSTEP_INTERVAL := 0.425
 
 var input_direction = Vector2.ZERO
 var speed := 100
 var health := 5.0
 var can_move := false
 var hud: Node
+var footstep_cooldown := 0.0
 
 
-func _physics_process(_delta: float) -> void:
-	handle_movement()
+func _physics_process(delta: float) -> void:
+	handle_movement(delta)
 	handle_dropping()
 	handle_collisions()
 
 
-func handle_movement():
+func handle_movement(delta: float):
 	if not can_move:
 		return
+
 	input_direction.x = Input.get_axis('move_left','move_right')
 	input_direction.y = Input.get_axis('move_up','move_down')
 
@@ -27,6 +30,12 @@ func handle_movement():
 
 	move_and_slide()
 	set_animation()
+	
+	footstep_cooldown -= delta
+	if footstep_cooldown <= 0 and not $FootstepPlayer.playing:
+		$FootstepPlayer.pitch_scale = randf_range(0.9, 1.1)
+		$FootstepPlayer.play()
+		footstep_cooldown = FOOTSTEP_INTERVAL
 
 
 func start_moving() -> void:
