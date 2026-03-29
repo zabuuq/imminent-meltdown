@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://biy2ju47eifej" path="res://art/characters/radioactive-backward-3.png" id="9_orarq"]
 [ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="13_omoht"]
 [ext_resource type="AudioStream" uid="uid://cgvejihp7fmji" path="res://audio/footstep_concrete_003.ogg" id="14_610bc"]
+[ext_resource type="AudioStream" uid="uid://dnhpbq6ks4rxv" path="res://audio/the-vampires-monster-curious-zombies-moan-medium-340258.mp3" id="15_qfg44"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_innfb"]
 animations = [{
@@ -178,6 +179,13 @@ process_material = SubResource("ParticleProcessMaterial_tg4gf")
 
 [node name="FootstepWorker" type="AudioStreamPlayer2D" parent="." unique_id=1967595275]
 stream = ExtResource("14_610bc")
+volume_db = -30.0
+max_distance = 250.0
+
+[node name="WorkerMoans" type="AudioStreamPlayer2D" parent="." unique_id=684269278]
+stream = ExtResource("15_qfg44")
+volume_db = -20.0
+autoplay = true
 max_distance = 250.0
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
