@@ -53,13 +53,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" type="Label" parent="MessageContainer" unique_id=643941914]
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageContainer" unique_id=200000001]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="MessageContainer/VBoxContainer" unique_id=643941914]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_xeevv")
 theme_override_font_sizes/font_size = 80
 text = "Game Over"
 horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageContainer/VBoxContainer" unique_id=200000002]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageContainer/VBoxContainer/MarginContainer" unique_id=200000003]
+layout_mode = 2
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=200000004]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer1" unique_id=200000005]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Items Fixed: "
+
+[node name="ItemsFixedLabel" type="Label" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer1" unique_id=200000006]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=200000007]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=200000008]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Time Left: "
+
+[node name="TimeLeftLabel" type="Label" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=200000009]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=200000010]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=200000011]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Score: "
+
+[node name="ScoreLabel" type="Label" parent="MessageContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=200000012]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 24
+text = "0"
 
 [node name="StartContainer" type="MarginContainer" parent="." unique_id=89549615]
 layout_mode = 1

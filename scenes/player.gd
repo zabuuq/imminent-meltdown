@@ -7,6 +7,7 @@ var input_direction = Vector2.ZERO
 var speed := 100
 var health := 5.0
 var can_move := false
+var hud: Node
 
 
 func _physics_process(_delta: float) -> void:
@@ -99,6 +100,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	update_health.emit(health)
 	
 	if health <= 0:
+		if hud:
+			GameOver.items_fixed = hud.items_fixed
+			GameOver.time_left = 0
+			GameOver.score = hud.items_fixed
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")
 		
 	if $HealTimer.is_stopped():

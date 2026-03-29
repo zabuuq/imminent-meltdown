@@ -14,6 +14,7 @@ func _ready() -> void:
 
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
 	$HUD.game_won.connect(_on_game_won)
+	$Player/Player.hud = $HUD
 	$"Reactor/RXHeat".self_modulate.a = 0.5
 
 func _process(_delta: float) -> void:
@@ -114,4 +115,7 @@ func _on_game_won(items_fixed: int) -> void:
 
 
 func _on_meltdown_timer_timeout() -> void:
+	GameOver.items_fixed = $HUD.items_fixed
+	GameOver.time_left = 0
+	GameOver.score = $HUD.items_fixed
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")
