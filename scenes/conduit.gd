@@ -30,13 +30,16 @@ func _on_body_entered(body: Node2D) -> void:
 func _pick_up(body: Node2D) -> void:
 	if not is_inside_tree():
 		return
+
 	if body.get_node('Holding').get_child_count() > 0:
 		can_pick_up = true
 		return
+
 	var conduit = OBJECT.instantiate()
 
 	conduit.position = Vector2.ZERO
 	body.get_node('Holding').add_child(conduit)
+	body.get_node('PickUpSound').play()
 
 	if body.has_node('DropTimer'):
 		body.get_node('DropTimer').wait_time = randi_range(1, 10)
