@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+const FOOTSTEP_INTERVAL := 0.85
+
 var speed := 50
 var goal: Node
 var can_move := false
+var footstep_cooldown := 0.0
+
 @onready var player = get_tree().get_first_node_in_group('Player')
 
 
@@ -12,16 +16,24 @@ func _ready() -> void:
 	$DeathTimer.start()
 
 
-func _physics_process(_delta: float) -> void:
-	if can_move:
-		if position.distance_to(player.global_position) < 80 and position.distance_to(player.global_position) > 8:
-			$NavigationAgent2D.target_position = player.global_position
+func _physics_process(delta: float) -> void:
+	if not can_move:
+		return
 
-		if !$NavigationAgent2D.is_navigation_finished():
-			var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
-			velocity = nav_point_direction * speed
-			move_and_slide()
-			set_animation()
+	if position.distance_to(player.global_position) < 80 and position.distance_to(player.global_position) > 8:
+		$NavigationAgent2D.target_position = player.global_position
+
+	if !$NavigationAgent2D.is_navigation_finished():
+		var nav_point_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
+		velocity = nav_point_direction * speed
+		move_and_slide()
+		set_animation()
+
+	footstep_cooldown -= delta
+	if footstep_cooldown <= 0:
+		$FootstepWorker.pitch_scale = randf_range(0.9, 1.1)
+		$FootstepWorker.play()
+		footstep_cooldown = FOOTSTEP_INTERVAL
 
 
 func set_animation():
