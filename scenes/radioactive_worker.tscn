@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="13_omoht"]
 [ext_resource type="AudioStream" uid="uid://cgvejihp7fmji" path="res://audio/footstep_concrete_003.ogg" id="14_610bc"]
 [ext_resource type="AudioStream" uid="uid://dnhpbq6ks4rxv" path="res://audio/the-vampires-monster-curious-zombies-moan-medium-340258.mp3" id="15_qfg44"]
+[ext_resource type="AudioStream" uid="uid://bskyp2dd1cf6w" path="res://audio/freesound_community-item-equip-6904.mp3" id="16_tg4gf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_innfb"]
 animations = [{
@@ -186,6 +187,11 @@ max_distance = 250.0
 stream = ExtResource("15_qfg44")
 volume_db = -20.0
 autoplay = true
+max_distance = 250.0
+
+[node name="PickUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1090006582]
+stream = ExtResource("16_tg4gf")
+volume_db = 10.0
 max_distance = 250.0
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
