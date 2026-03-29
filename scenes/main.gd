@@ -32,10 +32,21 @@ func _process(_delta: float) -> void:
 			msg.text = "No time to stop!"
 	if not $MeltdownTimer.is_stopped():
 		$HUD.set_meltdown_time(ceili($MeltdownTimer.time_left))
-		var progress = 1.0 - $MeltdownTimer.time_left / $MeltdownTimer.wait_time
-		var pulse_speed = lerp(1.0, 10.0, progress)
-		var alpha := (sin(Time.get_ticks_msec() / 1000.0 * pulse_speed) + 1.0) / 2.0
-		$"Reactor/RXHeat".self_modulate.a = lerp(0.2, 1.0, alpha)
+		if $HUD.damages > 0:
+			var progress = 1.0 - $MeltdownTimer.time_left / $MeltdownTimer.wait_time
+			var pulse_speed = lerp(1.0, 10.0, progress)
+			var alpha := (sin(Time.get_ticks_msec() / 1000.0 * pulse_speed) + 1.0) / 2.0
+			$"Reactor/RXHeat".self_modulate.a = lerp(0.2, 1.0, alpha)
+		else:
+			var max_time_left := 0.0
+			var fix_wait := 1.0
+			for obj in $Objects.get_children():
+				if obj.has_node("FixTimer") and not obj.get_node("FixTimer").is_stopped():
+					var t = obj.get_node("FixTimer").time_left
+					if t > max_time_left:
+						max_time_left = t
+						fix_wait = obj.get_node("FixTimer").wait_time
+			$"Reactor/RXHeat".self_modulate.a = max_time_left / fix_wait
 
 
 func spawn_objects(object_scene: PackedScene, count: int) -> void:
