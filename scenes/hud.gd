@@ -1,16 +1,27 @@
 extends CanvasLayer
 
 var damages := 0
+var cooldowns := 0
 
 
 func add_damage() -> void:
 	damages += 1
-	$DamagesMargin/HBoxContainer/DamagesLabel.text = str(damages)
+	$DamagesMargin/VBoxContainer/HBoxContainer/DamagesLabel.text = str(damages)
 
 
 func remove_damage() -> void:
 	damages -= 1
-	$DamagesMargin/HBoxContainer/DamagesLabel.text = str(damages)
+	$DamagesMargin/VBoxContainer/HBoxContainer/DamagesLabel.text = str(damages)
+
+
+func add_cooldown() -> void:
+	cooldowns += 1
+	$DamagesMargin/VBoxContainer/HBoxContainer2/CooldownLabel.text = str(cooldowns)
+
+
+func remove_cooldown() -> void:
+	cooldowns -= 1
+	$DamagesMargin/VBoxContainer/HBoxContainer2/CooldownLabel.text = str(cooldowns)
 
 
 func set_meltdown_time(t: int) -> void:

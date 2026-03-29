@@ -7,6 +7,15 @@ var meltdown_timer: Timer
 var on_fixed: Callable
 
 
+func _ready() -> void:
+	$FixTimer.timeout.connect(_on_fix_timer_timeout)
+
+
+func _process(_delta: float) -> void:
+	if not $FixTimer.is_stopped():
+		$MarginContainer/Label.text = str(ceili($FixTimer.time_left))
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Player"):
 		return
@@ -19,6 +28,17 @@ func _on_body_entered(body: Node2D) -> void:
 
 	holding.get_child(0).queue_free()
 	hud.remove_damage()
+	hud.add_cooldown()
 	meltdown_timer.start(meltdown_timer.time_left + 15.0)
 	on_fixed.call()
+
+	$CollisionShape2D.set_deferred("disabled", true)
+	$RedRect.hide()
+	$YellowRect.show()
+	$MarginContainer/Label.show()
+	$FixTimer.start()
+
+
+func _on_fix_timer_timeout() -> void:
+	hud.remove_cooldown()
 	queue_free()
