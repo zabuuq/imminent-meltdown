@@ -9,14 +9,38 @@ size = Vector2(16, 16)
 collision_layer = 16
 script = ExtResource("1_2sglj")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=183172551]
+[node name="RedRect" type="ColorRect" parent="." unique_id=183172551]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
 color = Color(0.61960787, 0, 0, 0.49803922)
 
+[node name="YellowRect" type="ColorRect" parent="." unique_id=847674988]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 1, 0, 0.49803922)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=111248912]
 shape = SubResource("RectangleShape2D_5p07i")
+
+[node name="FixTimer" type="Timer" parent="." unique_id=1838594694]
+wait_time = 10.0
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=335154352]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_top = -1
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1358678215]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 6
+text = "10"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

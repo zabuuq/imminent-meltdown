@@ -40,7 +40,6 @@ animations = [{
 script = ExtResource("1_64ctp")
 
 [node name="TimerMargin" type="MarginContainer" parent="." unique_id=270866557]
-visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 58.0
@@ -68,23 +67,38 @@ theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 36
 
 [node name="DamagesMargin" type="MarginContainer" parent="." unique_id=36530249]
-visible = false
 custom_minimum_size = Vector2(0, 58)
 offset_right = 163.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DamagesMargin" unique_id=685426570]
+[node name="VBoxContainer" type="VBoxContainer" parent="DamagesMargin" unique_id=1861655107]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DamagesMargin/HBoxContainer" unique_id=1566483564]
+[node name="HBoxContainer" type="HBoxContainer" parent="DamagesMargin/VBoxContainer" unique_id=685426570]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Damages Remaining: "
 
-[node name="DamagesLabel" type="Label" parent="DamagesMargin/HBoxContainer" unique_id=168257962]
+[node name="Label" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer" unique_id=1566483564]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
+text = "Damaged Items: "
+
+[node name="DamagesLabel" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer" unique_id=168257962]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DamagesMargin/VBoxContainer" unique_id=359582380]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer2" unique_id=1582247836]
+layout_mode = 2
+text = "Cooling Items: "
+
+[node name="CooldownLabel" type="Label" parent="DamagesMargin/VBoxContainer/HBoxContainer2" unique_id=1290075023]
+layout_mode = 2
 text = "0"
 
 [node name="LivesMargin" type="MarginContainer" parent="." unique_id=137796289]
