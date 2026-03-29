@@ -30,7 +30,7 @@ func _on_body_entered(body: Node2D) -> void:
 	hud.add_cooldown()
 	hud.remove_damage()
 	meltdown_timer.start(meltdown_timer.time_left + 15.0)
-	on_fixed.call()
+	on_fixed.call_deferred()
 
 	$CollisionShape2D.set_deferred("disabled", true)
 	$RedRect.hide()
