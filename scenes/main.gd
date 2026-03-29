@@ -9,7 +9,7 @@ const RAD_WORKER_SCENE = preload('res://scenes/radioactive_worker.tscn')
 func _ready() -> void:
 	# set up the map objects and initial breaks
 	spawn_objects(CONDUIT_SCENE, 25)
-	for i in 5:
+	for i in 5 + WinGame.level:
 		break_tile()
 
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)

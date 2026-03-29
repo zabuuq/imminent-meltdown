@@ -5,11 +5,13 @@ static var items_fixed: int = 0
 static var time_left: int = 0
 static var score: int = 0
 static var cumulative_score: int = 0
+static var level: int = 0
 
 
 func _ready() -> void:
 	var previous_score := cumulative_score
 	cumulative_score += score
+	level += 1
 
 	var base := $MessageContainer/VBoxContainer/MarginContainer/VBoxContainer
 	base.get_node("HBoxContainer1/ItemsFixedLabel").text = str(items_fixed)

@@ -9,6 +9,7 @@ static var score: int = 0
 func _ready() -> void:
 	var previous_score := WinGame.cumulative_score
 	WinGame.cumulative_score = 0
+	WinGame.level = 0
 
 	var base := $MessageContainer/VBoxContainer/MarginContainer/VBoxContainer
 	base.get_node("HBoxContainer1/ItemsFixedLabel").text = str(items_fixed)
