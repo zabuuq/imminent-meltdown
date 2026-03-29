@@ -18,8 +18,15 @@ func _ready() -> void:
 	$HUD.set_previous_score(WinGame.cumulative_score)
 	$"Reactor/RXHeat".self_modulate.a = 0.5
 	$StartSound.play()
-
+		
 func _process(_delta: float) -> void:
+	
+	if Input.is_action_pressed("music_off"):
+		$Music.stop()
+		$StartSound.stop()
+	if Input.is_action_pressed("music_on"):
+		$Music.play()
+	
 	if not $StartTimer.is_stopped():
 		var t: int = ceili($StartTimer.time_left)
 		$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = str(t)
