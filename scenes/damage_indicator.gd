@@ -22,6 +22,10 @@ func _on_body_entered(body: Node2D) -> void:
 	var holding := body.get_node("Holding")
 	if holding.get_child_count() == 0:
 		return
+	var conduit = holding.get_child(0)
+	if conduit.consumed:
+		return
+	conduit.consumed = true
 
 	var broken_coord := conduits_layer.get_cell_atlas_coords(cell)
 	conduits_layer.set_cell(cell, conduits_layer.get_cell_source_id(cell), ConduitMap.get_fixed(broken_coord))

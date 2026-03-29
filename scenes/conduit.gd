@@ -3,6 +3,7 @@ extends Area2D
 const OBJECT = preload('res://scenes/conduit.tscn')
 
 var can_pick_up = true
+var consumed := false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
