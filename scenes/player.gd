@@ -105,6 +105,9 @@ func _is_on_navmesh(nav_map: RID, pos: Vector2) -> bool:
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
+	$MobHitSound.play()
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	$HitFlashTimer.start()
 	health -= 1
 	update_health.emit(health)
 	
@@ -118,6 +121,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if $HealTimer.is_stopped():
 		$HealTimer.start()
 		
+
+
+func _on_hit_flash_timer_timeout() -> void:
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 
 func _on_heal_timer_timeout() -> void:
