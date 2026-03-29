@@ -13,12 +13,13 @@ func _ready() -> void:
 		break_tile()
 
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
+	$HUD.game_won.connect(_on_game_won)
 
 #func _process1(_delta: float):
 #	$"Objects/Reactor/Reactor Heat".self.modulate.a = 100
 
 func _process(_delta: float) -> void:
-	$"Objects/Reactor/RXHeat".self_modulate.a = 0.5
+	$"Reactor/Reactor/RXHeat".self_modulate.a = 0.5
 	if not $StartTimer.is_stopped():
 		var t: int = ceili($StartTimer.time_left)
 		$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = str(t)
@@ -83,6 +84,10 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_damage_timer_timeout() -> void:
+	if $HUD.damages == 0:
+		$DamageTimer.stop()
+		return
+
 	# Set the next spawn time between 30 and 60 seconds
 	$DamageTimer.wait_time = randi_range(30, 60)
 
@@ -96,6 +101,10 @@ func _on_mob_spawn_timer_timeout() -> void:
 	var rad_worker := RAD_WORKER_SCENE.instantiate()
 	rad_worker.position = $RadWorker/StartPosition.position
 	$RadWorker.add_child(rad_worker)
+
+
+func _on_game_won() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/win_game.tscn")
 
 
 func _on_meltdown_timer_timeout() -> void:
