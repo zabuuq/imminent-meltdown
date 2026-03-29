@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4lb344ga6giq"]
 
 [ext_resource type="Script" uid="uid://d2hwaug6ou17y" path="res://scenes/damage_indicator.gd" id="1_2sglj"]
+[ext_resource type="AudioStream" uid="uid://bjm33lqiciaxk" path="res://audio/freesound_community-ratchet-socket-wrench-tool-95253.mp3" id="2_ltrgt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p07i"]
 size = Vector2(16, 16)
@@ -42,5 +43,10 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 6
 text = "10"
+
+[node name="FixSound" type="AudioStreamPlayer2D" parent="." unique_id=492245287]
+stream = ExtResource("2_ltrgt")
+volume_db = 10.0
+max_distance = 250.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

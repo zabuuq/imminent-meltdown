@@ -17,26 +17,33 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	var holding := body.get_node("Holding")
+
 	if not body.is_in_group("Player"):
 		return
-	var holding := body.get_node("Holding")
+
 	if holding.get_child_count() == 0:
 		return
+
 	var conduit = holding.get_child(0)
+
 	if conduit.consumed:
 		return
+
 	conduit.consumed = true
+	holding.get_child(0).queue_free()
 
 	var broken_coord := conduits_layer.get_cell_atlas_coords(cell)
 	conduits_layer.set_cell(cell, conduits_layer.get_cell_source_id(cell), ConduitMap.get_fixed(broken_coord))
 
-	holding.get_child(0).queue_free()
 	hud.add_cooldown()
 	hud.remove_damage()
 	meltdown_timer.start(meltdown_timer.time_left + 15.0)
 	on_fixed.call_deferred()
 
 	$CollisionShape2D.set_deferred("disabled", true)
+
+	$FixSound.play()
 	$RedRect.hide()
 	$YellowRect.show()
 	$MarginContainer/Label.show()
