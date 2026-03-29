@@ -7870,7 +7870,7 @@ parameters/looping = true
 [node name="Player" type="Node2D" parent="." unique_id=332799602]
 
 [node name="Player" parent="Player" unique_id=1618940360 groups=["player"] instance=ExtResource("1_ig7tw")]
-position = Vector2(808, 520)
+position = Vector2(16, 16)
 
 [node name="RadWorker" type="Node2D" parent="." unique_id=667070488]
 
