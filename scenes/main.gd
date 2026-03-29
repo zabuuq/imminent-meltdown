@@ -17,6 +17,7 @@ func _ready() -> void:
 	$Player/Player.hud = $HUD
 	$HUD.set_previous_score(WinGame.cumulative_score)
 	$"Reactor/RXHeat".self_modulate.a = 0.5
+	$StartSound.play()
 
 func _process(_delta: float) -> void:
 	if not $StartTimer.is_stopped():
@@ -96,6 +97,7 @@ func _on_start_timer_timeout() -> void:
 	$DamageTimer.start()
 	$RadWorker/MobSpawnTimer.start()
 	$Player/Player.start_moving()
+	$Music.play()
 
 
 func _on_damage_timer_timeout() -> void:

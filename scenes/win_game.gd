@@ -24,6 +24,8 @@ func _ready() -> void:
 		base.get_node("HBoxContainer3/ScoreLabel").text = str(cumulative_score)
 	else:
 		base.get_node("HBoxContainer3/ScoreLabel").text = str(score)
+	
+	$WinSound.play()
 
 
 func _process(_delta: float) -> void:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfti13frcb6p8" path="res://scenes/win_game.gd" id="1_ooaim"]
 [ext_resource type="FontFile" uid="uid://dmnv4rxtk5c2s" path="res://fonts/Xolonium-Regular.ttf" id="2_p6hhu"]
+[ext_resource type="AudioStream" uid="uid://ytv0jrbtu31d" path="res://audio/Win.mp3" id="3_t6d1g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
 font_size = 125
@@ -149,3 +150,7 @@ theme_override_fonts/font = ExtResource("2_p6hhu")
 theme_override_font_sizes/font_size = 50
 text = "press space to start the next level"
 horizontal_alignment = 1
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=765493903]
+stream = ExtResource("3_t6d1g")
+volume_db = -10.0
