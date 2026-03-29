@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://fskh3uuckphl" path="res://art/tiles/imment-meltdown-tilemap.png" id="4_85g3d"]
 [ext_resource type="AudioStream" uid="uid://oaf4pffgxg" path="res://audio/Orff - O Fortuna - Carmina Burana.mp3" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dffdpnvyccn08" path="res://art/Particles/smoke_particle.png" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://4vu73fl80adu" path="res://scenes/reactor.gd" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://du2jyd3iiqkoa" path="res://art/Particles/spark_particle2.png" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://bmom3xidljpvo" path="res://art/tiles/HeatSquare.png" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b71y4fqwe22vv" path="res://art/Particles/lightning_particle.png" id="10_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
@@ -7794,6 +7796,15 @@ scale = Vector2(0.23, 0.23)
 wait_time = 5.0
 
 [node name="Objects" type="Node2D" parent="." unique_id=1511004212]
+
+[node name="Reactor" type="StaticBody2D" parent="Objects" unique_id=105356716]
+script = ExtResource("8_eb6dy")
+
+[node name="RXHeat" type="Sprite2D" parent="Objects/Reactor" unique_id=1262469057]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(808.00006, 408.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("8_ya4ey")
 
 [node name="Damages" type="Node2D" parent="." unique_id=989905273]
 

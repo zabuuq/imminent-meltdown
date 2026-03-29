@@ -14,8 +14,11 @@ func _ready() -> void:
 
 	$MeltdownTimer.timeout.connect(_on_meltdown_timer_timeout)
 
+#func _process1(_delta: float):
+#	$"Objects/Reactor/Reactor Heat".self.modulate.a = 100
 
 func _process(_delta: float) -> void:
+	$"Objects/Reactor/RXHeat".self_modulate.a = 0.5
 	if not $StartTimer.is_stopped():
 		var t: int = ceili($StartTimer.time_left)
 		$HUD.get_node("MessageContainer/VBoxContainer/Countdown").text = str(t)
