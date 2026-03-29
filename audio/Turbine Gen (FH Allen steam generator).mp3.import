@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjrleh6n7o4w2"
+path="res://.godot/imported/Turbine Gen (FH Allen steam generator).mp3-a41570f5f434e3a6cb8051addd5c0ac8.mp3str"
+
+[deps]
+
+source_file="res://audio/Turbine Gen (FH Allen steam generator).mp3"
+dest_files=["res://.godot/imported/Turbine Gen (FH Allen steam generator).mp3-a41570f5f434e3a6cb8051addd5c0ac8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

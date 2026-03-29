@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c150m2rmwa6mi"
+path="res://.godot/imported/Reactor (Refrigerator Hum).mp3-54cf3dbaad1aabaf8d2928e46f8a311d.mp3str"
+
+[deps]
+
+source_file="res://audio/Reactor (Refrigerator Hum).mp3"
+dest_files=["res://.godot/imported/Reactor (Refrigerator Hum).mp3-54cf3dbaad1aabaf8d2928e46f8a311d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://dlow5mve7l375" path="res://audio/Main.mp3" id="9_choun"]
 [ext_resource type="Texture2D" uid="uid://b71y4fqwe22vv" path="res://art/Particles/lightning_particle.png" id="10_choun"]
 [ext_resource type="AudioStream" uid="uid://15by63m1hwto" path="res://audio/Start.mp3" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://c150m2rmwa6mi" path="res://audio/Reactor (Refrigerator Hum).mp3" id="12_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://dgcf7hf7lqpkt" path="res://audio/Steam Gen (Hydroelectric Generator).mp3" id="13_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://bjrleh6n7o4w2" path="res://audio/Turbine Gen (FH Allen steam generator).mp3" id="14_jbj1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("4_4c57u")
@@ -7885,6 +7888,57 @@ wait_time = 5.0
 stream = ExtResource("11_ya4ey")
 volume_db = -10.0
 autoplay = true
+
+[node name="Ambient Sounds" type="Node2D" parent="." unique_id=790959250]
+
+[node name="ReactorSound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=377642475]
+position = Vector2(809, 408)
+stream = ExtResource("12_a8y0u")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
+
+[node name="SG 1-Sound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=1564855906]
+position = Vector2(641, 400)
+stream = ExtResource("13_jkv2x")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
+
+[node name="SG 2-Sound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=1827602153]
+position = Vector2(976, 402)
+stream = ExtResource("13_jkv2x")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
+
+[node name="Turbine 1A-Sound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=1290916256]
+position = Vector2(631, 200)
+stream = ExtResource("14_jbj1t")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
+
+[node name="Turbine 1B-Sound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=1108600761]
+position = Vector2(728, 154)
+stream = ExtResource("14_jbj1t")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
+
+[node name="Turbine 2A-Sound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=1703988717]
+position = Vector2(986, 201)
+stream = ExtResource("14_jbj1t")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
+
+[node name="Turbine 2B-Sound" type="AudioStreamPlayer2D" parent="Ambient Sounds" unique_id=675925266]
+position = Vector2(887, 153)
+stream = ExtResource("14_jbj1t")
+volume_db = -20.0
+autoplay = true
+max_distance = 250.0
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
